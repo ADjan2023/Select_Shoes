@@ -12,6 +12,7 @@ include("../controllers/cart_controller.php");
     if(isset($_POST['add'])){
 	$pid=$_POST['pid'];
 	$quantity=$_POST['quantity'];
+
 	if(add_to_cart_ctr($pid,$ip,$_SESSION['id'],$quantity)==TRUE){
 			header('Location:../view/index.php');
 		}
@@ -20,8 +21,9 @@ include("../controllers/cart_controller.php");
     if(isset($_POST['add1'])){
     $pid=$_POST['pid'];
     $quantity=$_POST['quantity'];
-
-    if(add_to_cart_ctr($pid,$ip,$_SESSION['id'],$quantity)==TRUE){
+    $size=$_POST['sizes'];
+    if(add_to_cart_ctr($pid,$ip,$_SESSION['id'],$quantity,$size)==TRUE){
+ 
             header('Location:../view/cart.php');
         }
 

@@ -162,28 +162,26 @@ if(isset($_POST['view'])){
 						<p><?php  productDescription($id); ?></p>
 						<div class="size-wrap">
 							<div class="block-26 mb-2">
-								<h4>Size</h4>
-								<ul>
-									<li><a href="#">7</a></li>
-									<li><a href="#">7.5</a></li>
-									<li><a href="#">8</a></li>
-									<li><a href="#">8.5</a></li>
-									<li><a href="#">9</a></li>
-									<li><a href="#">9.5</a></li>
-									<li><a href="#">10</a></li>
-									<li><a href="#">10.5</a></li>
-									<li><a href="#">11</a></li>
-									<li><a href="#">11.5</a></li>
-									<li><a href="#">12</a></li>
-									<li><a href="#">12.5</a></li>
-									<li><a href="#">13</a></li>
-									<li><a href="#">13.5</a></li>
-									<li><a href="#">14</a></li>
-								</ul>
+								<form method="POST" action="../actions/add_cart.php">
+								<h4>Select Your Shoe Size</h4>
+								
+								
+						<div class="dropdown">
+  <select class="btn btn-secondary dropdown-toggle"   aria-haspopup="true" aria-expanded="false" style="background-color: #840212;" name="sizes">
+   	
+									<?php
+									shoeSizes($id);
+
+									?>
+  </select>
+  
+    
+ 
+</div>
 							</div>
 							
 						</div>
-						<form method="POST" action="../actions/add_cart.php">
+						
 						<div class="input-group mb-4">
 							<span class="input-group-btn">
 								<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field=""  onclick="decrement();">

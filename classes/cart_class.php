@@ -20,13 +20,13 @@ class cart_class extends db_connection
 		$sql="INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`) VALUES ('$id','$ip','$cid','$quantity')";
 		return $this->db_query($sql);
 	}*/
-	public function add_to_cart($id,$ip,$cid,$quantity)
+	public function add_to_cart($id,$ip,$cid,$quantity,$size)
 	{
-		$sql="INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`) select '$id','$ip','$cid','$quantity' from dual WHERE NOT EXISTS(Select * from cart where `p_id`='$id' and `ip_add`='$ip' and `c_id`='$cid')";
+		$sql="INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`,`shoe_size`) select '$id','$ip','$cid','$quantity','$size' from dual WHERE NOT EXISTS(Select * from cart where `p_id`='$id' and `ip_add`='$ip' and `c_id`='$cid')";
 		$this->db_query($sql);
 		
 		if (mysqli_affected_rows($this->db)==0){
-			$sql1="UPDATE `cart` set `qty`=`qty`+'$quantity' where `p_id`='$id' and `ip_add`='$ip' and `c_id`='$cid'";
+			$sql1="UPDATE `cart` set `qty`=`qty`+'$quantity' where `p_id`='$id' and `c_id`='$cid'";
 			return $this->db_query($sql1);
 		} else{
 			return $this->db_query($sql);
@@ -67,9 +67,9 @@ public function update_quantity_cart($cid,$pid,$quantity)
 		$sql="INSERT INTO `orders`(`customer_id`, `invoice_no`, `order_date`, `order_status`) VALUES ('$cid','$invoice','$date','$status')";
 		return $this->db_query($sql);
 	}
-	public function order_details($oid,$pid,$qty)
+	public function order_details($oid,$pid,$qty,$size)
 	{
-		$sql="INSERT INTO `orderdetails`(`order_id`, `product_id`, `qty`) VALUES ('$oid','$pid','$qty')";
+		$sql="INSERT INTO `orderdetails`(`order_id`, `product_id`, `qty`,`shoe_size`) VALUES ('$oid','$pid','$qty','$size')";
 		return $this->db_query($sql);
 	}
 

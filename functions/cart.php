@@ -28,9 +28,15 @@ function showCart($id){
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
+									<span class="price"><?php echo $result[$i]['shoe_size'];  ?></span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
 									<span class="price">GH¢<?php echo $product['product_price'];  ?></span>
 								</div>
 							</div>
+							
 							<div class="one-eight text-center">
 								<div class="display-tc">
 									<form method="POST" action="../actions/update_qty.php" id='<?php echo 'cart'.$i;  ?>'>
@@ -131,6 +137,11 @@ function orderConfirm($id){
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
+									<span class="price"><?php echo $result[$i]['shoe_size'];  ?></span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
 									<span class="price">GH¢<?php echo $product['product_price'];  ?></span>
 								</div>
 							</div>
@@ -195,9 +206,11 @@ $total+=($product['product_price'])*($result[$i]['qty']);
 											<form id="clearCart" method="POST" action="../actions/clear_cart.php">
 												<input type="hidden" name="cid" required value="<?php echo $_SESSION['id']; ?>" />
 												<input type="hidden" name="amount" required value="<?php echo $total+50; ?>" />
+												<input type="hidden" name="size" required value="<?php echo $result[$i]['shoe_size'];  ?>" />
 											</form>
 											<form id="fail" method="POST" action="../actions/failed_order.php">
 												<input type="hidden" name="cid" required value="<?php echo $_SESSION['id']; ?>" />
+												<input type="hidden" name="size" required value="<?php echo $result[$i]['shoe_size'];  ?>" />
 											</form>
 										</div>
 									</div>

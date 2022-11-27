@@ -6,9 +6,9 @@ require("../classes/cart_class.php");
 
 
 //--Add to cart--//
-function add_to_cart_ctr($id,$ip,$cid,$quantity){
+function add_to_cart_ctr($id,$ip,$cid,$quantity,$size){
 	$addcart=new cart_class();
-	return $addcart->add_to_cart($id,$ip,$cid,$quantity);
+	return $addcart->add_to_cart($id,$ip,$cid,$quantity,$size);
 }
 
 function create_order_ctr($cid,$invoice,$date,$status){
@@ -16,9 +16,9 @@ function create_order_ctr($cid,$invoice,$date,$status){
 	return $addorder->create_order($cid,$invoice,$date,$status);
 }
 
-function order_details($oid,$pid,$qty){
+function order_details($oid,$pid,$qty,$size){
 	$addorderdetails=new cart_class();
-	return $addorderdetails->order_details($oid,$pid,$qty);
+	return $addorderdetails->order_details($oid,$pid,$qty,$size);
 }
 function save_payment_ctr($amount,$cid,$oid,$currency,$date){
 	$savepayment=new cart_class();

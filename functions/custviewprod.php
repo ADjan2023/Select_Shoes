@@ -9,13 +9,7 @@ function viewProducts(){
 			?>
 			<div class="col-lg-3 mb-4 text-center">
 				<div class="product-entry border" class="prod-img">
-					<div style="background-color: #840212;">
-						<form method="POST" action="../actions/add_cart.php">
-							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
-							<input type="hidden" name="quantity" value="1">
-					<button class="btn text-center" type="submit" style="background-color: transparent; border: none; color: white; " name="add"><i class="fas fa-shopping-cart"> Add to cart</i></button>
-				</form>
-				</div>
+					
 					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="img-fluid" >
 					<div class="desc"  >
 						<h2><?php echo $result[$i]['product_title'];  ?></h2>
@@ -34,7 +28,7 @@ function viewProducts(){
 
 			$i++;
 		}
-		  
+
 	}
 	else{
 		echo "No products found";
@@ -149,9 +143,9 @@ function searchedProducts($input){
 						<form method="POST" action="../actions/add_cart.php">
 							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
 							<input type="hidden" name="quantity" value="1">
-					<button class="btn text-center" type="submit" style="background-color: transparent; border: none; color: white; " name="add"><i class="fas fa-shopping-cart"> Add to cart</i></button>
-				</form>
-				</div>
+							<button class="btn text-center" type="submit" style="background-color: transparent; border: none; color: white; " name="add"><i class="fas fa-shopping-cart"> Add to cart</i></button>
+						</form>
+					</div>
 					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="img-fluid" >
 					<div class="desc">
 						<h2><?php echo $result[$i]['product_title'];  ?></h2>
@@ -177,12 +171,12 @@ function searchedProducts($input){
 }
 function countCart($cid){
 	$ip = $_SERVER['REMOTE_ADDR'];
- 
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }
+
+	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+		$ip = $_SERVER['HTTP_CLIENT_IP'];
+	} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	}
 
 	$result=count_cart_ctr($cid,$ip);
 
@@ -195,4 +189,25 @@ function countCart($cid){
 
 }
 
+function shoeSizes($id){
+	$result=select_one_product_ctr($id);
+	$i=0;
+	#
+			$size=$result['product_sizes'];
+			$sizes=preg_split('@,@', $size, -1, PREG_SPLIT_NO_EMPTY);
+			$j=0;
+
+			while($j<count($sizes)){
+
+				?>
+
+				<option value="<?php echo $sizes[$j]; ?>"><?php echo $sizes[$j]; ?></option>
+
+				<?php
+				$j++;
+			}
+
+		
+		}
+	
 ?>

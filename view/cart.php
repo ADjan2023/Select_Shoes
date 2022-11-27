@@ -43,7 +43,11 @@ session_start();
 
 	</head>
 	<body>
-		
+		<style type="text/css">
+			body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+		</style>
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -157,6 +161,9 @@ session_start();
 						<div class="product-name d-flex">
 							<div class="one-forth text-left px-4">
 								<span>Product Details</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Shoe Size</span>
 							</div>
 							<div class="one-eight text-center">
 								<span>Price</span>

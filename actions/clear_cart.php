@@ -15,7 +15,7 @@ if(isset($_POST['cid'])){
 	
 	$i=0;
 	while($i<count($result)){
-		order_details($oid['order_id'],$result[$i]['p_id'],$result[$i]['qty']);
+		order_details($oid['order_id'],$result[$i]['p_id'],$result[$i]['qty'],$result[$i]['shoe_size']);
 		$i++;
 	}
 	$status="Success";

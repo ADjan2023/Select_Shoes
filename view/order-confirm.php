@@ -160,6 +160,9 @@ session_start();
 								<span>Product Details</span>
 							</div>
 							<div class="one-eight text-center">
+								<span>Shoe Size</span>
+							</div>
+							<div class="one-eight text-center">
 								<span>Price</span>
 							</div>
 							<div class="one-eight text-center">
