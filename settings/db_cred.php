@@ -1,9 +1,9 @@
 <?php
 //Database credentials
-define("SERVER", "eu-cdbr-west-03.cleardb.net");
-define("USERNAME","b4799e4ad3c3f6");
-define("PASSWD", "85ebf725");
-define("DATABASE", "heroku_2f28a549a2aad87");
+define("SERVER", "us-cdbr-east-06.cleardb.net");
+define("USERNAME","b4fdd967ca217d");
+define("PASSWD", "811ca6db");
+define("DATABASE", "heroku_a2e0576f69c7c1d");
 /*define("SERVER", "localhost");
 define("USERNAME","root");
 define("PASSWD", "");
