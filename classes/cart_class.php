@@ -103,6 +103,15 @@ public function update_quantity_cart($cid,$pid,$quantity)
 		$sql="SELECT products.product_title,products.product_price,orderdetails.qty,orderdetails.product_id from products,orderdetails where orderdetails.order_id='$oid' and orderdetails.product_id= products.product_id";
 		return $this->db_fetch_all($sql);
 	}
+	public function view_invoice($oid)
+	{
+		$sql="SELECT * from `orders` where  `order_id`='$oid' ";
+		return $this->db_fetch_one($sql);
+	}
+
+
+
+
 
 }
 

@@ -7494,7 +7494,7 @@ h1, h2, h3, h4, h5,
             letter-spacing: 0; }
             .colorlib-nav ul li.has-dropdown .dropdown li a:active {
               color: #840212; }
-      .colorlib-nav ul li.has-dropdown:active a, .colorlib-nav ul li.has-dropdown:focus a {
+      .colorlib-nav ul li.has-dropdown:active a, .colorlib-nav ul li.has-dropdown:active a {
         color: #840212; }
     .colorlib-nav ul li.btn-cta a {
       padding: 30px 0px !important;

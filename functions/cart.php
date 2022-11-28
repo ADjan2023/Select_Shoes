@@ -403,4 +403,13 @@ $total+=($product['product_price'])*($result[$i]['qty']);
 	}
 
 }
+
+function showInvoice($oid){
+	
+
+	$result=view_invoice_ctr($oid);
+	echo $result['invoice_no'];
+	
+
+}
 ?>

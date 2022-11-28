@@ -55,6 +55,11 @@ function view_order_ctr($oid){
 	return $vieworder->view_order($oid);
 }
 
+function view_invoice_ctr($oid){
+	$viewinvoice=new cart_class();
+	return $viewinvoice->view_invoice($oid);
+}
+
 
 
 //--UPDATE--//

@@ -92,9 +92,19 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 						<div class="col-sm-10 text-left menu-1">
 							<ul>
 								<li class="active"><a href="index.php">Home</a></li>
-								<li><a href="">Categories</a></li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Categories
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <p class="dropdown-item" style="padding-top: 10px; background-color: #840212; color: white;">View Profile</p>
+  </div>
+</li>
+								</li>
 								<li><a href="">About</a></li>
 								<li><a href="">Contact</a></li>
+								<li><a href="order-details.php">View Orders</a></li>
+								
 								 
 								<li class="cart"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
 
