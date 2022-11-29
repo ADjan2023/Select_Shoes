@@ -2637,7 +2637,7 @@ input[type="button"].btn-block {
   white-space: nowrap;
   background-color: transparent;
   border: 0; }
-  .dropdown-item:active, .dropdown-item:focus {
+  .dropdown-item:hover, .dropdown-item:focus {
     color: #16181b;
     text-decoration: none;
     background-color: #f8f9fa; }
@@ -3322,7 +3322,7 @@ input[type="button"].btn-block {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem; }
-  .navbar-toggler:active, .navbar-toggler:focus {
+  .navbar-toggler:hover, .navbar-toggler:focus {
     text-decoration: none; }
   .navbar-toggler:not(:disabled):not(.disabled) {
     cursor: pointer; }
@@ -7440,7 +7440,7 @@ h1, h2, h3, h4, h5,
       -webkit-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
       transition: all 0.5s ease; }
-      .colorlib-nav ul li a:active {
+      .colorlib-nav ul li a:hover {
         color: #840212; }
     .colorlib-nav ul li.has-dropdown {
       position: relative; }
@@ -7492,9 +7492,9 @@ h1, h2, h3, h4, h5,
             line-height: 1.2;
             text-transform: none;
             letter-spacing: 0; }
-            .colorlib-nav ul li.has-dropdown .dropdown li a:active {
+            .colorlib-nav ul li.has-dropdown .dropdown li a:hover {
               color: #840212; }
-      .colorlib-nav ul li.has-dropdown:active a, .colorlib-nav ul li.has-dropdown:active a {
+      .colorlib-nav ul li.has-dropdown:hover a, .colorlib-nav ul li.has-dropdown:focus a {
         color: #840212; }
     .colorlib-nav ul li.btn-cta a {
       padding: 30px 0px !important;
@@ -7515,7 +7515,7 @@ h1, h2, h3, h4, h5,
         -moz-border-radius: 100px;
         -ms-border-radius: 100px;
         border-radius: 100px; }
-      .colorlib-nav ul li.btn-cta a:active span {
+      .colorlib-nav ul li.btn-cta a:hover span {
         -webkit-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 14px 20px -9px rgba(0, 0, 0, 0.75); }
@@ -7625,7 +7625,7 @@ h1, h2, h3, h4, h5,
           #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn.btn-learn {
             background: #616161;
             color: #fff; }
-          #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn:active {
+          #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn:hover {
             background: #000 !important; }
           @media (max-width: 767.98px) {
             #colorlib-hero .flexslider .slider-text > .slider-text-inner .btn {
@@ -8583,7 +8583,7 @@ input[type="text"] {
   top: 2.7em !important; }
   .colorlib-nav-toggle.active i::before, .colorlib-nav-toggle.active i::after {
     background: #fff; }
-   .colorlib-nav-toggle:focus, .colorlib-nav-toggle:active {
+  .colorlib-nav-toggle:hover, .colorlib-nav-toggle:focus, .colorlib-nav-toggle:active {
     outline: none;
     border-bottom: none !important; }
   .colorlib-nav-toggle i {
@@ -8621,10 +8621,10 @@ input[type="text"] {
 .colorlib-nav-toggle i::after {
   bottom: -7px; }
 
-.colorlib-nav-toggle:active i::before {
+.colorlib-nav-toggle:hover i::before {
   top: -8px; }
 
-.colorlib-nav-toggle:active i::after {
+.colorlib-nav-toggle:hover i::after {
   bottom: -8px; }
 
 .colorlib-nav-toggle.active i {

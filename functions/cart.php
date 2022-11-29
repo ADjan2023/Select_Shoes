@@ -412,4 +412,45 @@ function showInvoice($oid){
 	
 
 }
+
+function packageTrack($oid){
+	
+
+	$result=view_invoice_ctr($oid);
+	
+	if ($result!=false) {
+		if ($result['deliv_status']=='Processed'){
+			echo " <li class='active step0'></li>
+                <li class=' step0'></li>
+                <li class=' step0'></li>
+                <li class=' step0'></li>";
+
+		}
+		else if($result['deliv_status']=='Shipped'){
+			echo " <li class='active step0'></li>
+                <li class='active step0'></li>
+                <li class=' step0'></li>
+                <li class=' step0'></li>";
+		}
+		else if($result['deliv_status']=='Delivery'){
+			echo " <li class='active step0'></li>
+                <li class='active step0'></li>
+                <li class='active step0'></li>
+                <li class=' step0'></li>";
+		}
+		else if($result['deliv_status']=='Arrived'){
+		echo " <li class='active step0'></li>
+                <li class='active step0'></li>
+                <li class='active step0'></li>
+                <li class='active step0'></li>";
+
+		}
+			
+		  
+	else{
+		echo "No results";
+	}
+
+}
+}
 ?>

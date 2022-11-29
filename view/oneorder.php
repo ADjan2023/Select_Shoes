@@ -280,19 +280,18 @@ if(isset($_POST['oid'])){
     <div class="card">
         <div class="row d-flex justify-content-between px-3 top">
             <div class="d-flex">
-                <h5 >ORDER <span class="text-primary font-weight-bold"  ><p style="color: #840212;">#<?php
-                require('../functions/cart.php');
-                 showInvoice($_POST['oid']); ?></p></span></h5>
+                  <h5 >ORDER <span class="text-primary font-weight-bold"  ><p style="color: #840212;">#<?php 
+                require('../functions/cart.php');;
+                showInvoice($_POST['oid']); ?></p></span></h5>
             </div>
         </div>
         <!-- Add class 'active' to progress -->
         <div class="row d-flex justify-content-center">
             <div class="col-12">
             <ul id="progressbar" class="text-center">
-                <li class="active step0"></li>
-                <li class="active step0"></li>
-                <li class=" step0"></li>
-                <li class="step0"></li>
+               <?php 
+                packageTrack($_POST['oid']);
+               ?>
             </ul>
             </div>
         </div>

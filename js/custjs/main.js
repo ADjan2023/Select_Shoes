@@ -144,7 +144,7 @@
 
 	var dropdown = function() {
 
-		$('.has-dropdown').onclick(function(){
+		$('.has-dropdown').mouseenter(function(){
 
 			var $this = $(this);
 			$this
@@ -152,7 +152,7 @@
 				.css('display', 'block')
 				.addClass('animated-fast fadeInUpMenu');
 
-		}).onclick(function(){
+		}).mouseleave(function(){
 			var $this = $(this);
 
 			$this
