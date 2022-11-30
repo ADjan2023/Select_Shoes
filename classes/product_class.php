@@ -69,9 +69,9 @@ class product_class extends db_connection
 		return $this->db_query($sql);
 	}
 
-	public function update_product($cid,$bid,$title,$price,$image,$keywords,$description,$id)
+	public function update_product($cid,$bid,$title,$price,$image,$keywords,$description,$sizes,$id)
 	{
-		$sql="UPDATE `products` SET `product_cat`='$cid',`product_brand`='$bid',`product_title`='$title',`product_price`='$price',`product_desc`='$description',`product_image`='$image',`product_keywords`='$keywords' WHERE `product_id`='$id'";
+		$sql="UPDATE `products` SET `product_cat`='$cid',`product_brand`='$bid',`product_title`='$title',`product_price`='$price',`product_desc`='$description',`product_image`='$image',`product_keywords`='$keywords',`product_sizes`='$sizes' WHERE `product_id`='$id'";
 		
 		return $this->db_query($sql);
 	}
@@ -94,9 +94,9 @@ class product_class extends db_connection
 		return $this->db_fetch_one($sql);
 	}	
 	
-	public function add_product($cid,$bid,$title,$price,$image,$keywords,$description)
+	public function add_product($cid,$bid,$title,$price,$image,$keywords,$description,$sizes)
 	{
-		$sql="INSERT INTO `products`( `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`) VALUES ('$cid','$bid','$title','$price','$description','$image','$keywords')";
+		$sql="INSERT INTO `products`( `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`,`product_sizes`) VALUES ('$cid','$bid','$title','$price','$description','$image','$keywords','$sizes')";
 		return $this->db_query($sql);
 	}
 

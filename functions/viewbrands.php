@@ -319,6 +319,7 @@ function showProducts(){
 								<input type="text" style="background: white;" class="form-control" name="price" id="recipient-name" value="<?php echo $result[$i]['product_price'];  ?>" required><br>
 								<input type="file" style="background: white;" class="form-control" name="image[]" id="recipient-name"><br>
 								<input type="text" style="background: white;" class="form-control" name="keywords" id="recipient-name" value="<?php echo $result[$i]['product_keywords'];  ?>" required><br>
+								<input type="text" style="background: white;" class="form-control" name="sizes" id="recipient-name" value="<?php echo $result[$i]['product_sizes'];  ?>" required><br>
 								<textarea style="background: white;" class="form-control" name="description" id="recipient-name"  ><?php echo $result[$i]['product_desc'];  ?></textarea>
 								<input type="hidden" name="image" value="<?php echo $result[$i]['product_image'];  ?>">
 								<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">

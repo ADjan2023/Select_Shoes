@@ -9,6 +9,7 @@ if(isset($_POST['add'])){
 	$cid=$_POST['cid'];
 	$title=$_POST['title'];
 	$price=$_POST['price'];
+	$sizes=$_POST['sizes'];
 	 
 	$keywords=$_POST['keywords'];
 	$description=$_POST['description'];
@@ -29,7 +30,7 @@ if(isset($_POST['add'])){
 
 
 move_uploaded_file($_FILES["image"]["tmp_name"][0],$output_dir."/".$NewImageName );
-	if(add_product_ctr($cid,$bid,$title,$price,$NewImageName,$keywords,$description)==TRUE){
+	if(add_product_ctr($cid,$bid,$title,$price,$NewImageName,$keywords,$description,$sizes)==TRUE){
 		header('Location:../Admin/view_product.php');
 	}
 	else{

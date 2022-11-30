@@ -39,9 +39,9 @@ function update_category_ctr($name,$id){
 	return $updatecategory->update_category($name,$id);
 }
 
-function update_product_ctr($cid,$bid,$title,$price,$image,$keywords,$description,$id){
+function update_product_ctr($cid,$bid,$title,$price,$image,$keywords,$description,$sizes,$id){
 	$updateproduct=new product_class();
-	return $updateproduct->update_product($cid,$bid,$title,$price,$image,$keywords,$description,$id);
+	return $updateproduct->update_product($cid,$bid,$title,$price,$image,$keywords,$description,$sizes,$id);
 }
 //--DELETE--//
 function delete_brand_ctr($id){
@@ -65,9 +65,9 @@ function select_brand_ctr($id){
 }
 
 //--Insert Product--//
-function add_product_ctr($cid,$bid,$title,$price,$image,$keywords,$description){
+function add_product_ctr($cid,$bid,$title,$price,$image,$keywords,$description,$sizes){
 	$addproduct=new product_class();
-	return $addproduct->add_product($cid,$bid,$title,$price,$image,$keywords,$description);
+	return $addproduct->add_product($cid,$bid,$title,$price,$image,$keywords,$description,$sizes);
 }
 
 //--Select Products--//

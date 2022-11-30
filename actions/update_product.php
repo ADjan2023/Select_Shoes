@@ -16,6 +16,7 @@ if(isset($_POST['update'])){
 	$keywords=$_POST['keywords'];
 	$description=$_POST['description'];
 	$img=$_POST['image'];
+	$sizes=$_POST['sizes'];
 
 	//image upload
 	$output_dir = "../images/products/";/* Path for file upload */
@@ -34,7 +35,7 @@ if(isset($_POST['update'])){
 if(empty($ImageName)!=TRUE){
 	unlink("../images/products/".$img);
 move_uploaded_file($_FILES["image"]["tmp_name"][0],$output_dir."/".$NewImageName );
-	if(update_product_ctr($cid,$bid,$title,$price,$NewImageName,$keywords,$description,$pid)==TRUE){
+	if(update_product_ctr($cid,$bid,$title,$price,$NewImageName,$keywords,$description,$sizes,$pid)==TRUE){
 
 			header('Location:../Admin/view_product.php');
 		}
@@ -43,7 +44,7 @@ move_uploaded_file($_FILES["image"]["tmp_name"][0],$output_dir."/".$NewImageName
 }
 }
 else{
-	if(update_product_ctr($cid,$bid,$title,$price,$img,$keywords,$description,$pid)==TRUE){
+	if(update_product_ctr($cid,$bid,$title,$price,$img,$keywords,$description,$sizes,$pid)==TRUE){
 
 			header('Location:../Admin/view_product.php');
 		}

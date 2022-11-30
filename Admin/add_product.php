@@ -347,11 +347,16 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                                 <label for="floatingInput">Product Keywords</label>
                             </div>
                             <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingKey" name="sizes" 
+                                    placeholder="Shoe Sizes" required>
+                                <label for="floatingInput">Enter Available Shoe Sizes Seperated by Comma's</label>
+                            </div>
+                            <div class="form-floating mb-3">
                                 <textarea class="form-control" placeholder="Leave a description here" name="description" 
                                     id="floatingTextarea" style="height: 150px;"></textarea>
                                 <label for="floatingTextarea">Product description</label>
                             </div>
-                              <button type="submit" class="btn btn-primary" name="add">Add Product</button>
+                              <button type="submit" class="btn btn-primary" name="add">Add Shoe</button>
                         </div>
                     </div>
                 </form>
