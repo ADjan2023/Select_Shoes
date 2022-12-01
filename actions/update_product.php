@@ -7,7 +7,6 @@ include("../controllers/product_controller.php");
 
 if(isset($_POST['update'])){
 
-	$allowTypes = array('jpg','png','jpeg','gif');
 	$pid=$_POST['pid']; 
 	$bid=$_POST['bid'];
 	$cid=$_POST['cid'];
@@ -15,9 +14,28 @@ if(isset($_POST['update'])){
 	$price=$_POST['price'];
 	$keywords=$_POST['keywords'];
 	$description=$_POST['description'];
-	$img=$_POST['image'];
+	
 	$sizes=$_POST['sizes'];
 
+
+
+
+
+
+
+	if(update_product_ctr($cid,$bid,$title,$price,$keywords,$description,$sizes,$pid)==TRUE){
+
+			header('Location:../Admin/view_product.php');
+		}
+		else{
+	echo "Unable to delete image";
+
+}
+
+} else if(isset($_POST['updateimg'])){
+
+	$allowTypes = array('jpg','png','jpeg','gif');
+	$pid=$_POST['pid']; 
 	//image upload
 	$output_dir = "../images/products/";/* Path for file upload */
 	$RandomNum   = time();
@@ -35,7 +53,7 @@ if(isset($_POST['update'])){
 if(empty($ImageName)!=TRUE){
 	unlink("../images/products/".$img);
 move_uploaded_file($_FILES["image"]["tmp_name"][0],$output_dir."/".$NewImageName );
-	if(update_product_ctr($cid,$bid,$title,$price,$NewImageName,$keywords,$description,$sizes,$pid)==TRUE){
+	if(update_image_ctr($NewImageName,$pid)==TRUE){
 
 			header('Location:../Admin/view_product.php');
 		}
@@ -43,15 +61,7 @@ move_uploaded_file($_FILES["image"]["tmp_name"][0],$output_dir."/".$NewImageName
 	echo "Unable to delete image";
 }
 }
-else{
-	if(update_product_ctr($cid,$bid,$title,$price,$img,$keywords,$description,$sizes,$pid)==TRUE){
 
-			header('Location:../Admin/view_product.php');
-		}
-		else{
-	echo "Unable to delete image";
-}
-}
 
 }
 

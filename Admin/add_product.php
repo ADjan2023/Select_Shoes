@@ -108,6 +108,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                     </div> -->
                     <a href="add_product.php" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Add Product</a>
                     <a href="view_product.php" class="nav-item nav-link "><i class="fa fa-table me-2"></i>View Products</a>
+                     <a href="manage_orders.php" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Manage Orders</a>
                 </div>
                 
             </nav>

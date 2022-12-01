@@ -69,9 +69,16 @@ class product_class extends db_connection
 		return $this->db_query($sql);
 	}
 
-	public function update_product($cid,$bid,$title,$price,$image,$keywords,$description,$sizes,$id)
+	public function update_product($cid,$bid,$title,$price,$keywords,$description,$sizes,$id)
 	{
-		$sql="UPDATE `products` SET `product_cat`='$cid',`product_brand`='$bid',`product_title`='$title',`product_price`='$price',`product_desc`='$description',`product_image`='$image',`product_keywords`='$keywords',`product_sizes`='$sizes' WHERE `product_id`='$id'";
+		$sql="UPDATE `products` SET `product_cat`='$cid',`product_brand`='$bid',`product_title`='$title',`product_price`='$price',`product_desc`='$description',`product_keywords`='$keywords',`product_sizes`='$sizes' WHERE `product_id`='$id'";
+		
+		return $this->db_query($sql);
+	}
+
+	public function update_image($image,$id)
+	{
+		$sql="UPDATE `products` SET `product_image`='$image' WHERE `product_id`='$id'";
 		
 		return $this->db_query($sql);
 	}
@@ -128,6 +135,24 @@ class product_class extends db_connection
 		$sql="SELECT SUM(`qty`) as `cart_num` FROM `cart` WHERE `c_id`='$cid' ";
 		return $this->db_fetch_one($sql);
 	}
+
+	public function view_orders()
+	{
+		$sql="SELECT customer.customer_name, customer.customer_email,orders.invoice_no, orders.order_id, orders.order_date,orders.deliv_status, orders.order_status FROM orders,customer WHERE orders.customer_id=customer.customer_id  and orders.order_complete='No'  ORDER BY orders.order_date DESC ";
+		return $this->db_fetch_all($sql);
+	}
+	public function view_one_order($oid)
+	{
+		$sql="SELECT orderdetails.qty, orderdetails.shoe_size ,products.product_title, payment.amt, orders.order_id FROM orders,orderdetails,payment,products WHERE orders.order_id=orderdetails.order_id and orders.order_id=payment.order_id and orderdetails.product_id=products.product_id and orders.order_id='$oid'; ";
+		return $this->db_fetch_all($sql);
+	}
+
+	public function update_deliv($status,$oid)
+	{
+		$sql="UPDATE `orders` set `deliv_status`='$status' where `order_id`='$oid'";
+		return $this->db_query($sql);
+	}
+
 
 
 }

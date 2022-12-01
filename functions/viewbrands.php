@@ -280,7 +280,7 @@ function showProducts(){
 			<div class="col-md-2 d-flex align-items-stretch"  >
 				<div class="card" style="width: 18rem;  ">
 					<div >
-						<span style="position: absolute; background-color:  white; opacity: 60%; padding-left: 60px;padding-right: 48.7px;" ><button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#exampleModal".$i;?>'><i class="fa-solid fa-camera"></i>  Change image
+						<span style="position: absolute; background-color:  white; opacity: 60%; padding-left: 60px;padding-right: 48.7px;" ><button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#image".$i;?>'><i class="fa-solid fa-camera"></i>  Change image
 							</button>
 						</span>
 
@@ -329,11 +329,11 @@ function showProducts(){
 								<br>
 								<input type="text" style="background: white;" class="form-control" name="title" id="recipient-name" value="<?php echo $result[$i]['product_title'];  ?>" required><br>
 								<input type="text" style="background: white;" class="form-control" name="price" id="recipient-name" value="<?php echo $result[$i]['product_price'];  ?>" required><br>
-								<input type="file" style="background: white;" class="form-control" name="image[]" id="recipient-name"><br>
+								
 								<input type="text" style="background: white;" class="form-control" name="keywords" id="recipient-name" value="<?php echo $result[$i]['product_keywords'];  ?>" required><br>
 								<input type="text" style="background: white;" class="form-control" name="sizes" id="recipient-name" value="<?php echo $result[$i]['product_sizes'];  ?>" required><br>
 								<textarea style="background: white;" class="form-control" name="description" id="recipient-name"  ><?php echo $result[$i]['product_desc'];  ?></textarea>
-								<input type="hidden" name="image" value="<?php echo $result[$i]['product_image'];  ?>">
+								
 								<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
 
 
@@ -346,6 +346,32 @@ function showProducts(){
 					</div>
 				</div>
 			</div>
+			<div class="modal fade" id='<?php echo "image".$i;?>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel" style="color: black;">Update Image</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form method="POST" action="../actions/update_product.php" enctype="multipart/form-data">
+								<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
+
+
+							<input type="file" accept="image/*" style="background: white;" class="form-control" name="image[]" id="recipient-name"  ><br>
+							
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary" name="updateimg">Update</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
 			<?php
 
@@ -383,6 +409,128 @@ function viewProducts(){
 	}
 	else{
 		echo "No products found";
+	}
+
+}
+
+function manageOrders(){
+	$result=view_orders_ctr();
+	$i=0;
+	if ($result!=false) {
+		while($i<count($result))
+		{
+			?>
+			  <tr>
+                                    
+                                    <td> <?php echo $result[$i]['order_date'];  ?></td>
+                                    <td> <?php echo $result[$i]['invoice_no'];  ?></td>
+                                    <td> <?php echo $result[$i]['customer_name'];  ?></td>
+                                    
+                                    <td><?php echo $result[$i]['order_status'];  ?></td>
+                                    <td>
+                                     <form method="POST" action="../actions/update_deliv.php" id="<?php echo "deliv".$i;  ?>">
+                                     	<input type="hidden" name="oid" value="<?php echo $result[$i]['order_id'];  ?>">
+                                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="deliv" onchange="getElementById('<?php echo "deliv".$i;  ?>').submit()">
+                                        <?php
+                                        	if($result[$i]['deliv_status']=="Processed"){
+                                        ?>
+                                            <option selected value=" <?php echo $result[$i]['deliv_status'];  ?>"> <?php echo $result[$i]['deliv_status'];  ?></option>
+                                            
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivery">Delivery</option>
+                                           	<option value="Arrived">Arrived</option>
+
+                                           	<?php
+                                           		}
+                                           		else if($result[$i]['deliv_status']=="Shipped"){
+                                        ?>
+                                            <option selected value=" <?php echo $result[$i]['deliv_status'];  ?>"> <?php echo $result[$i]['deliv_status'];  ?></option>
+                                            
+                                            <option value="Processed">Processed</option>
+                                            <option value="Delivery">Delivery</option>
+                                           	<option value="Arrived">Arrived</option>
+
+                                           	<?php
+                                           		} else if($result[$i]['deliv_status']=="Delivery"){
+                                        ?>
+                                            <option selected value=" <?php echo $result[$i]['deliv_status'];  ?>"> <?php echo $result[$i]['deliv_status'];  ?></option>
+                                            
+                                            <option value="Processed">Processed</option>
+                                            <option value="Shipped">Shipped</option>
+                                           	<option value="Arrived">Arrived</option>
+
+                                           	<?php
+                                           		} else if($result[$i]['deliv_status']=="Arrived"){
+                                        ?>
+                                            <option selected value=" <?php echo $result[$i]['deliv_status'];  ?>"> <?php echo $result[$i]['deliv_status'];  ?></option>
+                                            	<option value="Processed">Processed</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivery">Delivery</option>
+                                           
+
+                                           	<?php
+                                           		}
+                                           	?>
+                              </select>
+                          </form>
+                               
+                           
+                        </td> 
+                        <td>
+                        	<button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#exampleModal".$i;?>'><i class="fas fa-eye"></i> View Order</button>
+                        </td>      
+                                </tr>
+                           <div class="modal fade" id='<?php echo "exampleModal".$i;?>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel" style="color: black;">View Order</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<?php 
+							$order=view_one_order_ctr($result[$i]['order_id']);
+							if ($order==false) {
+								echo "Order is empty";
+							} else{
+								?>
+								 <?php echo "Amount Spent: ".$order[0]['amt']."<br><br>";  ?>
+								<?php 
+								$j=0;
+								while($j<count($order)){
+									?>
+									<span style="text-align: left;"><?php echo "Product ".$j+1;  ?></span><br><br>
+									<input type="text" style="background: white;" class="form-control" value=" <?php echo "Shoe Name: ".$order[$j]['product_title'];  ?>" disabled><br>
+									<input type="text" style="background: white;" class="form-control" value=" <?php echo "Shoe Size: ".$order[$j]['shoe_size'];  ?>" disabled><br>
+									<input type="text" style="background: white;" class="form-control" value=" <?php echo "Quantity: ".$order[$j]['qty'];  ?>" disabled><br>
+									
+									<?php
+									$j++;
+								}
+							}
+
+							?>
+							
+
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								
+						</div>
+					</div>
+				</div>
+			</div>   
+
+			<?php
+
+			$i++;
+		} 
+	}
+	else{
+		echo "No orders made";
 	}
 
 }

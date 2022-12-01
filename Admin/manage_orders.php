@@ -84,7 +84,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="admin_dash.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="admin_dash.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
                     <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
@@ -107,9 +107,9 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                             <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
                     </div> -->
-                    <a href="add_product.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Add Product</a>
-                <a href="view_product.php" class="nav-item nav-link "><i class="fa fa-table me-2"></i>View Products</a>
-                 <a href="manage_orders.php" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Manage Orders</a>
+                    <a href="add_product.php" class="nav-item nav-link"><i class="fa fa-plus me-2"></i>Add Product</a>
+                <a href="view_product.php" class="nav-item nav-link "><i class="fa fa-eye me-2"></i>View Products</a>
+                 <a href="manage_orders.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Manage Orders</a>
                 </div>
 
             </nav>
@@ -218,49 +218,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
         <!-- Navbar End -->
 
 
-        <!-- Sale & Revenue Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sale & Revenue End -->
-
+       
 
         <!-- Sales Chart Start -->
             <!-- <div class="container-fluid pt-4 px-4">
@@ -314,57 +272,44 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                 <div class="row g-4">
                    
                 
+<!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Manage Orders</h6>
+                        <a href="">Show All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                   
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Invoice</th>
+                                    <th scope="col">Customer</th>
+                                    
+                                    <th scope="col">Status</th>
+                                    
+                                    <th scope="col">Delivery Status</th>
+                                    <th scope="col">View Order</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                    <?php
 
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Brands</h6>
-                                
-                            </div>
-                            <form method="POST" action="../actions/add_brand.php" onSubmit="return confirm('Do you want to add this brand?') ">
-                            <div class="d-flex mb-2">
-                                
-                                <input class="form-control bg-dark border-0" type="text" placeholder="Enter Brand Name" name="bname" required>
-                                <button type="submit" name="save" class="btn btn-primary ms-2">Add</button>
-                                
-                            </div>
-                            </form>
-                            
-                            <!-- <div id="brands"></div> -->
-                           
-                          <?php 
-                          include("../functions/viewbrands.php");
-                          viewBrands();
-                          ?>
-                            
-                            
-                        </div>
+                                        require("../functions/viewbrands.php");
+                                        manageOrders();
+                                    ?>     
+                                </tr>
+                              
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Categories</h6>
-                                
-                            </div>
-                            <form method="POST" action="../actions/add_category.php" onSubmit="return confirm('Do you want to add this category?') ">
-                            <div class="d-flex mb-2">
-                                
-                                <input class="form-control bg-dark border-0" type="text" placeholder="Enter Category Name" name="cname" required>
-                                <button type="submit" name="save" class="btn btn-primary ms-2">Add</button>
-                                
-                            </div>
-                            </form>
-                            
-                            <?php 
-                          
-                          viewCategories();
-                          ?>
-                            
-                           
-                            
-                            
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
                 </div>
             </div>
             
