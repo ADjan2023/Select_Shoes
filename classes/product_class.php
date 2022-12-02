@@ -153,7 +153,23 @@ class product_class extends db_connection
 		return $this->db_query($sql);
 	}
 
+	public function complete_order($oid)
+	{
+		$sql="UPDATE `orders` SET `order_complete`='Yes' WHERE `order_id`='$oid'";
+		return $this->db_query($sql);
+	}
 
+	public function select_customer($cid)
+	{
+		$sql="SELECT * FROM `customer` WHERE `customer_id`='$cid'";
+		return $this->db_fetch_one($sql);
+	}
+
+	public function update_newsletter($id,$status)
+	{
+		$sql="UPDATE `customer` set `newsletter`='$status' where `customer_id`='$id'";
+		return $this->db_query($sql);
+	}
 
 }
 

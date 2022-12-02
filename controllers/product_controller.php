@@ -118,5 +118,19 @@ function update_deliv_ctr($status,$oid){
 	return $updatedeliv->update_deliv($status,$oid);
 }
 
+function complete_order_ctr($oid){
+	$completeorder=new product_class();
+	return $completeorder->complete_order($oid);
+}
+
+function select_customer_ctr($cid){
+	$completeorder=new product_class();
+	return $completeorder->select_customer($cid);
+}
+
+function update_newsletter_ctr($id,$status){
+	$updateadvert=new product_class();
+	return $updateadvert->update_newsletter($id,$status);
+}
 
 ?>

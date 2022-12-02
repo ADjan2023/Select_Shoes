@@ -476,9 +476,13 @@ function manageOrders(){
                                
                            
                         </td> 
+
                         <td>
                         	<button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#exampleModal".$i;?>'><i class="fas fa-eye"></i> View Order</button>
-                        </td>      
+                        </td>  
+                        <td>
+                        	<button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#complete".$i;?>' title="Mark Order As Completed"><i class="fas fa-check"></i></button>
+                        </td>    
                                 </tr>
                            <div class="modal fade" id='<?php echo "exampleModal".$i;?>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -518,6 +522,31 @@ function manageOrders(){
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								
+						</div>
+					</div>
+				</div>
+			</div>   
+			<div class="modal fade" id='<?php echo "complete".$i;?>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel" style="color: black;">Mark Order As Completed</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							 <p class="modal-card-title">Do you want to mark <?php echo $result[$i]['customer_name'];  ?>'s order as completed?</p>
+							
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+								  <form method="POST" action="../actions/complete_order.php">
+          <input type="hidden" value="<?php echo $result[$i]['order_id'];  ?>" name="oid">
+          <button type="submit" class="btn btn-primary" name="update">Yes</button>
+      </form>
 								
 						</div>
 					</div>

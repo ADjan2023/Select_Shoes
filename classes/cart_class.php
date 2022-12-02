@@ -95,7 +95,7 @@ public function update_quantity_cart($cid,$pid,$quantity)
 	}
 	public function view_orders($cid)
 	{
-		$sql="SELECT * from `orders` where  `customer_id`='$cid' ";
+		$sql="SELECT * from `orders` where  `customer_id`='$cid' ORDER BY `order_date` DESC ";
 		return $this->db_fetch_all($sql);
 	}
 	public function view_order($oid)

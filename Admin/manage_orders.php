@@ -292,6 +292,8 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                                     
                                     <th scope="col">Delivery Status</th>
                                     <th scope="col">View Order</th>
+                                     <th scope="col" ></th>
+
                                 </tr>
                             </thead>
                             <tbody>

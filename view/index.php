@@ -1,6 +1,6 @@
 <?php 
 session_start();
-    include("../functions/custviewprod.php");
+    require("../functions/custviewprod.php");
 if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=2) ){
 	header("location:../Login/login.php"); // redirects to login page
         exit;
@@ -16,6 +16,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	 <link href="img/favicon.ico" rel="icon">
+
 
 	 <!-- Icon Font Stylesheet -->
  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
@@ -46,6 +47,15 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/custcss/style.css">
+ <link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="../doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
 
 	</head>
 	<body>
@@ -79,7 +89,12 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
   	
-    <p class="dropdown-item" >View Profile</p>
+    <p class="dropdown-item" ><?php
+      newsletter($_SESSION['id']);
+      ?>
+             
+          
+        </p>
     <a class="dropdown-item" href="../actions/logout.php">Logout</a>
   </div>
 </div>
@@ -393,13 +408,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- Main -->
 	<script src="../js/custjs/main.js"></script>
 
-	<script >setInterval(function(){
-   $('#products').load('../functions/custviewprod.php');
-}, 10) 
+	
 
 
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
 
+	
+	<script src="../js/bootstrap-toggle.js"></script>
 
 	</body>
 </html>
