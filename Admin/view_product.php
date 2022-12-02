@@ -106,9 +106,10 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                             <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
                     </div> -->
-                    <a href="add_product.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Add Product</a>
-                     <a href="view_product.php" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>View Products</a>
-                      <a href="manage_orders.php" class="nav-item nav-link "><i class="fa fa-table me-2"></i>Manage Orders</a>
+                    <a href="add_product.php" class="nav-item nav-link"><i class="fa fa-plus me-2"></i>Add Product</a>
+                <a href="view_product.php" class="nav-item nav-link active"><i class="fa fa-eye me-2"></i>View Products</a>
+                 <a href="manage_orders.php" class="nav-item nav-link "><i class="fa fa-th me-2"></i>Manage Orders</a>
+                      <a href="newsletter.php" class="nav-item nav-link "><i class="fa fa-newspaper me-2"></i>Send Newsletter</a>
                 </div>
                 
             </nav>

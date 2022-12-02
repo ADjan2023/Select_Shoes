@@ -430,6 +430,7 @@ function manageOrders(){
                                     <td>
                                      <form method="POST" action="../actions/update_deliv.php" id="<?php echo "deliv".$i;  ?>">
                                      	<input type="hidden" name="oid" value="<?php echo $result[$i]['order_id'];  ?>">
+                                     	<input type="hidden" name="email" value="<?php echo $result[$i]['customer_email'];  ?>">
                                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="deliv" onchange="getElementById('<?php echo "deliv".$i;  ?>').submit()">
                                         <?php
                                         	if($result[$i]['deliv_status']=="Processed"){

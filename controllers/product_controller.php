@@ -133,4 +133,11 @@ function update_newsletter_ctr($id,$status){
 	return $updateadvert->update_newsletter($id,$status);
 }
 
+	
+
+function select_newsletter_ctr(){
+	$completeorder=new product_class();
+	return $completeorder->select_newsletter();
+}
+
 ?>

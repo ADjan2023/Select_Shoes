@@ -214,10 +214,10 @@ function newsletter($cid){
 	$result=select_customer_ctr($cid);
 				?>
 				<form method="POST" action="../actions/update_newsletter.php" id="newsletter" >
-					<p style="padding-left: 10px; ">Newsletter Subscription
+					<h4 style="padding-left: 10px; padding-top: 0px; padding-bottom: 0px; ">Newsletter Subscription 
 					<input name="newsletter" type="checkbox" <?php if ($result['newsletter']=="Yes") {
     	echo "checked"; } ?> data-toggle="toggle"  onchange="document.getElementById('newsletter').submit();">
-    </p>
+    </h4>
 					<input type="hidden" name="cid" value="<?php echo $cid; ?>">
 					<input type="hidden" name="newsletter" value="<?php echo $result['newsletter']; ?>">
     

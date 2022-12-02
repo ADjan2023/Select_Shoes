@@ -19,6 +19,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
 
 	 <!-- Icon Font Stylesheet -->
+	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<!-- Animate.css -->
@@ -49,8 +50,8 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 	<link rel="stylesheet" href="../css/custcss/style.css">
  <link rel="canonical" href="http://www.bootstraptoggle.com">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	
+
 
 	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
 	<link href="../doc/stylesheet.css" rel="stylesheet">
@@ -95,7 +96,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
              
           
         </p>
-    <a class="dropdown-item" href="../actions/logout.php">Logout</a>
+    <a class="dropdown-item" href="../actions/logout.php"><h4 style="padding-top: 10px;">Logout</h4></a>
   </div>
 </div>
 

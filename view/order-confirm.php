@@ -302,7 +302,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     currency:'GHS',
      ref: ''+Math.floor((Math.random() * 1000000000) + 1),
     onClose: function(){
-    alert('Payment failed');
     document.getElementById("fail").submit();
     },
     callback: function(response){

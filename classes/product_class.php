@@ -165,6 +165,12 @@ class product_class extends db_connection
 		return $this->db_fetch_one($sql);
 	}
 
+	public function select_newsletter()
+	{
+		$sql="SELECT * FROM `customer` WHERE `newsletter`='Yes'";
+		return $this->db_fetch_all($sql);
+	}
+
 	public function update_newsletter($id,$status)
 	{
 		$sql="UPDATE `customer` set `newsletter`='$status' where `customer_id`='$id'";
