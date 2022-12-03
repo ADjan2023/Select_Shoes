@@ -1,5 +1,11 @@
 <?php
 session_start();
+	require('../functions/cart.php');
+	if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=2) ){
+	header("location:../Login/login.php"); // redirects to login page
+        exit;
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -10,12 +16,12 @@ session_start();
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
-	
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	 <link href="img/favicon.ico" rel="icon">
-	 	 <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+
+
+	 <!-- Icon Font Stylesheet -->
+	 
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/custcss/animate.css">
@@ -43,22 +49,33 @@ session_start();
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/custcss/style.css">
+ <link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	
+
+
+	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="../doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
 
 	</head>
 	<body>
 		
-	<div class="colorlib-loader"></div>
+	
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
-					<div class="row">
-						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px"></a></div>
+					<div >
+						<div class="col-sm-7 col-md-9" style="position: absolute; top: 10px;left: 10px;">
+							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px" ></a></div>
 						</div>
-						<div class="col-sm-5 col-md-3">
-								<div class="dropdown show">
+						
+						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
+							
+							<div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   	<?php
 
@@ -75,24 +92,53 @@ session_start();
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
   	
-    <p class="dropdown-item" >View Profile</p>
+    <p class="dropdown-item" ><?php
+      newsletter($_SESSION['id']);
+      ?>
+             
+          
+        </p>
     <a class="dropdown-item" href="../actions/logout.php">Logout</a>
   </div>
 </div>
 
-
 						</div>
 						
-			         
-		         </div>
+			         </div>
+		         
 					<div class="row">
 						<div class="col-sm-10 text-left menu-1">
 							<ul>
 								<li ><a href="index.php">Home</a></li>
-								<li><a href="">Categories</a></li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Brands
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+   <?php
+   allBrands();
+   ?>
+  </div>
+</li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Categories
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+   <?php
+   allCategories();
+   ?>
+  </div>
+</li>
+								
 								<li><a href="">About</a></li>
 								<li><a href="">Contact</a></li>
+								<li class="active"><a href="order-details.php" >View Orders</a></li>
+								
+								 
+								<li style="padding-left: 100px"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
 
+							
 							</ul>
 
 						</div>
@@ -100,6 +146,7 @@ session_start();
 					</div>
 				</div>
 			</div>
+		
 			<div class="sale">
 				<div class="container">
 					<div class="row">
@@ -128,7 +175,7 @@ session_start();
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<p class="bread"><span><a href="index.php">Home</a></span> / <span>Shopping Cart</span></p>
+						<p class="bread"><span><a href="index.php">Home</a></span> / <span>View Orders</span></p>
 					</div>
 				</div>
 			</div>
@@ -156,7 +203,7 @@ session_start();
 						</div>
 						
 						<?php
-						require('../functions/cart.php');
+					
 						showOrders($_SESSION['id']);
 
 						?>
@@ -246,29 +293,37 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
 	
-	<!-- jQuery -->
-	<script src="../js/custjs/jquery.min.js"></script>
-   <!-- popper -->
-   <script src="../js/custjs/popper.min.js"></script>
-   <!-- bootstrap 4.1 -->
-   <script src="../js/custjs/bootstrap.min.js"></script>
-   <!-- jQuery easing -->
-   <script src="../js/custjs/jquery.easing.1.3.js"></script>
-	<!-- Waypoints -->
-	<script src="../js/custjs/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="../js/custjs/jquery.flexslider-min.js"></script>
-	<!-- Owl carousel -->
-	<script src="../js/custjs/owl.carousel.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="../js/custjs/jquery.magnific-popup.min.js"></script>
-	<script src="../js/custjs/magnific-popup-options.js"></script>
-	<!-- Date Picker -->
-	<script src="../js/custjs/bootstrap-datepicker.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="../js/custjs/jquery.stellar.min.js"></script>
-	<!-- Main -->
-	<script src="../js/custjs/main.js"></script>
+<!-- jQuery -->
+		<script src="../js/custjs/jquery.min.js"></script>
+		<!-- popper -->
+		<script src="../js/custjs/popper.min.js"></script>
+		<!-- bootstrap 4.1 -->
+		<script src="../js/custjs/bootstrap.min.js"></script>
+		<!-- jQuery easing -->
+		<script src="../js/custjs/jquery.easing.1.3.js"></script>
+		<!-- Waypoints -->
+		<script src="../js/custjs/jquery.waypoints.min.js"></script>
+		<!-- Flexslider -->
+		<script src="../js/custjs/jquery.flexslider-min.js"></script>
+		<!-- Owl carousel -->
+		<script src="../js/custjs/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="../js/custjs/jquery.magnific-popup.min.js"></script>
+		<script src="../js/custjs/magnific-popup-options.js"></script>
+		<!-- Date Picker -->
+		<script src="../js/custjs/bootstrap-datepicker.js"></script>
+		<!-- Stellar Parallax -->
+		<script src="../js/custjs/jquery.stellar.min.js"></script>
+		<!-- Main -->
+		<script src="../js/custjs/main.js"></script>
+
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+
+		<script src="../js/bootstrap-toggle.js"></script>
 
 	</body>
 </html>

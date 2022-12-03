@@ -177,6 +177,18 @@ class product_class extends db_connection
 		return $this->db_query($sql);
 	}
 
+	public function select_cat_products($id)
+	{
+		$sql="SELECT * FROM `products` where `product_cat`=$id";
+		return $this->db_fetch_all($sql);
+	}
+
+	public function select_brands_products($id)
+	{
+		$sql="SELECT * FROM `products` where `product_brand`=$id";
+		return $this->db_fetch_all($sql);
+	}
+
 }
 
 ?>

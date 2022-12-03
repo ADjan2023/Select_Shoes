@@ -39,7 +39,7 @@ if (!empty($_SESSION['id'])){
     <div class="mx-5 md-mx-l5">
         <h1 class="white fs-l3 lh-2 md-fs-xl1 md-lh-1 fw-900 ">Ayeyi's E-Commerce Labs</h1>  
         <?php
-        session_start();
+        
 
         if (!empty($_SESSION['name'])){
             ?>

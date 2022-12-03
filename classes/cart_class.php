@@ -110,7 +110,59 @@ public function update_quantity_cart($cid,$pid,$quantity)
 	}
 
 
+public function update_newsletter($id,$status)
+	{
+		$sql="UPDATE `customer` set `newsletter`='$status' where `customer_id`='$id'";
+		return $this->db_query($sql);
+	}
 
+	public function select_cat_products($id)
+	{
+		$sql="SELECT * FROM `products` where `product_cat`=$id";
+		return $this->db_fetch_all($sql);
+	}
+
+	public function select_brands_products($id)
+	{
+		$sql="SELECT * FROM `products` where `product_brand`=$id";
+		return $this->db_fetch_all($sql);
+	}
+
+
+	public function select_one_category($id)
+	{
+		$sql="SELECT * FROM `categories` where `cat_id`='$id'";
+		return $this->db_fetch_one($sql);
+	}
+
+public function select_brand($id)
+	{
+		$sql="SELECT * FROM `brands` WHERE `brand_id`=$id";
+		return $this->db_fetch_one($sql);
+	}	
+	
+
+	public function select_all_brands()
+	{
+		$sql="SELECT * FROM `brands`";
+		return $this->db_fetch_all($sql);
+	}
+
+public function select_all_categories()
+	{
+		$sql="SELECT * FROM `categories`";
+		return $this->db_fetch_all($sql);
+	}
+	public function cart_count($cid,$ip)
+	{
+		$sql="SELECT SUM(`qty`) as `cart_num` FROM `cart` WHERE `c_id`='$cid' ";
+		return $this->db_fetch_one($sql);
+	}
+public function select_customer($cid)
+	{
+		$sql="SELECT * FROM `customer` WHERE `customer_id`='$cid'";
+		return $this->db_fetch_one($sql);
+	}
 
 
 }

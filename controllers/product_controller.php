@@ -140,4 +140,13 @@ function select_newsletter_ctr(){
 	return $completeorder->select_newsletter();
 }
 
+function select_cat_products_ctr($id){
+	$seecategories=new product_class();
+	return $seecategories->select_cat_products($id);
+}
+
+function select_brands_products_ctr($id){
+	$seecategories=new product_class();
+	return $seecategories->select_brands_products($id);
+}
 ?>

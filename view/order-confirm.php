@@ -1,5 +1,11 @@
 <?php
 session_start();
+	require('../functions/cart.php');
+	if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=2) ){
+	header("location:../Login/login.php"); // redirects to login page
+        exit;
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -12,8 +18,10 @@ session_start();
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	 <link href="img/favicon.ico" rel="icon">
 
+
 	 <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+	 
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/custcss/animate.css">
@@ -41,9 +49,18 @@ session_start();
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/custcss/style.css">
+ <link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	
+
+
+	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="../doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
 
 	</head>
-	<body>
+	<body >
 		
 	<div class="colorlib-loader"></div>
 
@@ -51,12 +68,14 @@ session_start();
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
-					<div class="row">
-						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px"></a></div>
+					<div >
+						<div class="col-sm-7 col-md-9" style="position: absolute; top: 10px;left: 10px;">
+							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px" ></a></div>
 						</div>
-						<div class="col-sm-5 col-md-3">
-								<div class="dropdown show">
+						
+						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
+							
+							<div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   	<?php
 
@@ -73,24 +92,53 @@ session_start();
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
   	
-    <p class="dropdown-item" >View Profile</p>
+    <p class="dropdown-item" ><?php
+      newsletter($_SESSION['id']);
+      ?>
+             
+          
+        </p>
     <a class="dropdown-item" href="../actions/logout.php">Logout</a>
   </div>
 </div>
 
-
 						</div>
 						
-			         
-		         </div>
+			         </div>
+		         
 					<div class="row">
 						<div class="col-sm-10 text-left menu-1">
 							<ul>
 								<li ><a href="index.php">Home</a></li>
-								<li><a href="">Categories</a></li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Brands
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+   <?php
+   allBrands();
+   ?>
+  </div>
+</li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Categories
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+   <?php
+   allCategories();
+   ?>
+  </div>
+</li>
+								
 								<li><a href="">About</a></li>
 								<li><a href="">Contact</a></li>
+								<li><a href="order-details.php">View Orders</a></li>
+								
+								 
+								<li style="padding-left: 100px" class="active"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
 
+							
 							</ul>
 
 						</div>
@@ -175,7 +223,7 @@ session_start();
 						</div>
 						
 						<?php
-						require('../functions/cart.php');
+						
 						orderConfirm($_SESSION['id']);
 
 						?>
@@ -262,10 +310,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 
 	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+		<a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 	</div>
-	<script src="https://js.paystack.co/v1/inline.js"></script> 
-	<!-- jQuery -->
+!-- jQuery -->
 	<script src="../js/custjs/jquery.min.js"></script>
    <!-- popper -->
    <script src="../js/custjs/popper.min.js"></script>
@@ -289,9 +336,50 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- Main -->
 	<script src="../js/custjs/main.js"></script>
 
+	
+
+<script src="https://js.paystack.co/v1/inline.js"></script> 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+	
+	<script src="../js/bootstrap-toggle.js"></script>
+
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	 <script src="https://www.paypal.com/sdk/js?client-id=AZ2NCodoT7Bp5v7vc5PaBM9qkwBE8lrzn8mygnRIbLB2UqO-9N54j5TZxYCPjNVIXpTON1yb2c2j06jC&currency=USD"></script>
 
+  <script type="text/javascript">
+ 
+
+
+function fetchCurrencies() {
+  const primary = "GHS"
+  const secondary = "USD"
+  const amount = document.getElementById("amount").value
+  // Important: Include your API key below
+  fetch("https://v6.exchangerate-api.com/v6/0e4b4f63ccdf3a29881b8ece/latest/" + primary)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("NETWORK RESPONSE ERROR");
+      }
+    })
+    .then((data) => {
+      console.log(data);
+      displayCurrency(data, primary, secondary, amount);
+    })
+    .catch((error) => console.error("FETCH ERROR:", error));
+}
+function displayCurrency(data, primary, secondary, amount) {
+  const calculated = amount * data.conversion_rates[secondary];
+  document.getElementById("dollar").value = calculated;
+}
+
+window.onload = fetchCurrencies();
+</script>
 
 <script type="text/javascript">const paymentForm = document.getElementById('paymentForm');
   paymentForm.addEventListener("submit", payWithPaystack, false);
@@ -334,6 +422,55 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   });
   handler.openIframe();
 }</script>
+
+
+<script>
+      paypal.Buttons({
+        // Sets up the transaction when a payment button is clicked
+        createOrder: (data, actions) => {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: Number(document.getElementById('dollar').value).toFixed(2),// Can also reference a variable or function
+              }
+            }]
+          });
+        },
+        // Finalize the transaction after payer approval
+        onApprove: (data, actions) => {
+          return actions.order.capture().then(function(orderData) {
+            // Successful capture! For dev/demo purposes:
+           
+            const transaction = orderData.purchase_units[0].payments.captures[0];
+            Swal.fire({
+  icon: 'success',
+  title: 'Purchase Successful',
+  showConfirmButton: false,
+ timer: 4000,
+});
+              	document.getElementById("clearCart").submit();
+            // When ready to go live, remove the alert and show a success message within this page. For example:
+            // const element = document.getElementById('paypal-button-container');
+            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            // Or go to another URL:  actions.redirect('thank_you.html');
+          });
+
+        },
+         onCancel: function (data) {
+    	Swal.fire({
+  icon: 'error',
+  title: 'Purchase Failed',
+  showConfirmButton: false,
+ timer: 4000,
+});
+   document.getElementById("fail").submit();
+  },
+  
+        
+      }).render('#paypal-button-container');
+    </script>
+
+  
 	</body>
 </html>
 

@@ -8,17 +8,22 @@ function viewProducts(){
 		{
 			?>
 			<div class="col-lg-3 mb-4 text-center">
-				<div class="product-entry border" class="prod-img">
-					
+				<div class="product-entry border" >
+					<div class="prod-img">
 					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="img-fluid" >
+				</div>
 					<div class="desc"  >
 						<h2><?php echo $result[$i]['product_title'];  ?></h2>
 						<span class="price">GH¢ <?php echo $result[$i]['product_price'];  ?></span>
+						<div class="align-self-end">
 						<form action="../view/product-detail.php" method="POST">
 							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
 							<button class="btn btn-primary submit-search text-center" name="view" type="submit" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
 						</form>
 					</div>
+						
+					</div>
+
 				</div>
 			</div>
 			
@@ -139,13 +144,7 @@ function searchedProducts($input){
 			?>
 			<div class="col-lg-3 mb-4 text-center">
 				<div class="product-entry border" class="prod-img">
-					<div style="background-color: #840212;">
-						<form method="POST" action="../actions/add_cart.php">
-							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
-							<input type="hidden" name="quantity" value="1">
-							<button class="btn text-center" type="submit" style="background-color: transparent; border: none; color: white; " name="add"><i class="fas fa-shopping-cart"> Add to cart</i></button>
-						</form>
-					</div>
+					
 					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="img-fluid" >
 					<div class="desc">
 						<h2><?php echo $result[$i]['product_title'];  ?></h2>
@@ -181,7 +180,7 @@ function countCart($cid){
 	$result=count_cart_ctr($cid,$ip);
 
 	if ($result!=false) {
-		print_r($result['cart_num']);
+		echo $result['cart_num'];
 	}
 	else{
 		echo 0;
@@ -224,5 +223,114 @@ function newsletter($cid){
 				<?php
 				
 	}
+
+function allCategories(){
+$result=select_all_categories_ctr();
+if ($result!=false) {
+	$i=0;
+	while($i<count($result)){
+	?>
+	 <p class="dropdown-item" style="padding-top: 10px; background-color: #840212; color: white; cursor: pointer;" onclick="document.getElementById('<?php echo $result[$i]['cat_name']; ?>').submit();"><?php echo $result[$i]['cat_name']; ?><form method="POST" action="../view/viewcat.php" id="<?php echo $result[$i]['cat_name']; ?>">
+	 	<input type="hidden" name="cid" value="<?php echo $result[$i]['cat_id']; ?>">
+	 </form> </p>
+	<?php
+	$i++;
+}
+}
+else{
+	?>
+	<p class="dropdown-item" style="padding-top: 10px; background-color: #840212; color: white;">No categories found</p>
+	<?php
+}
+}
+
+function seeCat($input){
+	$result=select_cat_products_ctr($input);
+	$i=0;
+	if ($result!=false) {
+		while($i<count($result))
+		{
+			?>
+			<div class="col-lg-3 mb-4 text-center">
+				<div class="product-entry border" class="prod-img">
+					
+					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="img-fluid" >
+					<div class="desc">
+						<h2><?php echo $result[$i]['product_title'];  ?></h2>
+						<span class="price">GH¢ <?php echo $result[$i]['product_price'];  ?></span>
+						<form action="../view/product-detail.php" method="POST">
+							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
+							<button class="btn btn-primary submit-search text-center" type="submit" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+
+			<?php
+
+			$i++;
+		} 
+	}
+	else{
+		echo "No products available for this category";
+	}
+
+}
+
+function allBrands(){
+$result=select_all_brands_ctr();
+if ($result!=false) {
+	$i=0;
+	while($i<count($result)){
+	?>
+	 <p class="dropdown-item" style="padding-top: 10px; background-color: #840212; color: white; cursor: pointer;" onclick="document.getElementById('<?php echo $result[$i]['brand_name']; ?>').submit();"><?php echo $result[$i]['brand_name']; ?><form method="POST" action="../view/viewbrands.php" id="<?php echo $result[$i]['brand_name']; ?>">
+	 	<input type="hidden" name="bid" value="<?php echo $result[$i]['brand_id']; ?>">
+	 </form> </p>
+	<?php
+	$i++;
+}
+}
+else{
+	?>
+	<p class="dropdown-item" style="padding-top: 10px; background-color: #840212; color: white;">No brands found</p>
+	<?php
+}
+}
+
+
+function seeBrands($input){
+	$result=select_brands_products_ctr($input);
+	$i=0;
+	if ($result!=false) {
+		while($i<count($result))
+		{
+			?>
+			<div class="col-lg-3 mb-4 text-center">
+				<div class="product-entry border" class="prod-img">
+					
+					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="img-fluid" >
+					<div class="desc">
+						<h2><?php echo $result[$i]['product_title'];  ?></h2>
+						<span class="price">GH¢ <?php echo $result[$i]['product_price'];  ?></span>
+						<form action="../view/product-detail.php" method="POST">
+							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
+							<button class="btn btn-primary submit-search text-center" type="submit" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+
+			<?php
+
+			$i++;
+		} 
+	}
+	else{
+		echo "No products available for this brand";
+	}
+
+}
 ?>
 

@@ -81,6 +81,45 @@ function clear_cart_ctr($cid){
 	$clearcart=new cart_class();
 	return $clearcart->clear_cart($cid);
 }
+function update_newsletter_ctr($id,$status){
+	$updateadvert=new cart_class();
+	return $updateadvert->update_newsletter($id,$status);
+}
+function select_all_brands_ctr(){
+	$seebrands=new cart_class();
+	return $seebrands->select_all_brands();
+}
+function select_all_categories_ctr(){
+	$seecategories=new cart_class();
+	return $seecategories->select_all_categories();
+}
 
+function select_cat_products_ctr($id){
+	$seecategories=new cart_class();
+	return $seecategories->select_cat_products($id);
+}
 
+function select_brands_products_ctr($id){
+	$seecategories=new cart_class();
+	return $seecategories->select_brands_products($id);
+}
+
+function select_one_brand_ctr($id){
+	$onebrand=new cart_class();
+	return $onebrand->select_one_brand($id);
+}
+
+function select_one_category_ctr($id){
+	$onecategory=new cart_class();
+	return $onecategory->select_one_category($id);
+}
+function count_cart_ctr($cid,$ip){
+	$countcart=new cart_class();
+	return $countcart->cart_count($cid,$ip);
+}
+
+function select_customer_ctr($cid){
+	$completeorder=new cart_class();
+	return $completeorder->select_customer($cid);
+}
 ?>

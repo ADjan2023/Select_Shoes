@@ -1,5 +1,11 @@
 <?php
 session_start();
+	require('../functions/cart.php');
+	if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=2) ){
+	header("location:../Login/login.php"); // redirects to login page
+        exit;
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -10,10 +16,13 @@ session_start();
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
-	
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	 <link href="img/favicon.ico" rel="icon">
+
+
+	 <!-- Icon Font Stylesheet -->
+	 
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/custcss/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -40,26 +49,33 @@ session_start();
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/custcss/style.css">
+ <link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	
+
+
+	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="../doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
 
 	</head>
 	<body>
-		<style type="text/css">
-			body {
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-}
-		</style>
+		
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
-					<div class="row">
-						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px"></a></div>
+					<div >
+						<div class="col-sm-7 col-md-9" style="position: absolute; top: 10px;left: 10px;">
+							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px" ></a></div>
 						</div>
-						<div class="col-sm-5 col-md-3">
-								<div class="dropdown show">
+						
+						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
+							
+							<div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   	<?php
 
@@ -76,24 +92,53 @@ session_start();
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
   	
-    <p class="dropdown-item" >View Profile</p>
+    <p class="dropdown-item" ><?php
+      newsletter($_SESSION['id']);
+      ?>
+             
+          
+        </p>
     <a class="dropdown-item" href="../actions/logout.php">Logout</a>
   </div>
 </div>
 
-
 						</div>
 						
-			         
-		         </div>
+			         </div>
+		         
 					<div class="row">
 						<div class="col-sm-10 text-left menu-1">
 							<ul>
 								<li ><a href="index.php">Home</a></li>
-								<li><a href="">Categories</a></li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Brands
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+   <?php
+   allBrands();
+   ?>
+  </div>
+</li>
+								<li>
+  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Categories
+  </a>
+  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+   <?php
+   allCategories();
+   ?>
+  </div>
+</li>
+								
 								<li><a href="">About</a></li>
 								<li><a href="">Contact</a></li>
+								<li><a href="order-details.php">View Orders</a></li>
+								
+								 
+								<li style="padding-left: 100px" class="active"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
 
+							
 							</ul>
 
 						</div>
@@ -180,7 +225,7 @@ session_start();
 						</div>
 						
 						<?php
-						require('../functions/cart.php');
+					
 						showCart($_SESSION['id']);
 
 						?>
@@ -189,81 +234,7 @@ session_start();
 			</div>
 		</div>
 
-		<footer id="colorlib-footer" role="contentinfo">
-			<div class="container">
-				<div class="row row-pb-md">
-					<div class="col footer-col colorlib-widget">
-						<h4>About Footwear</h4>
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-						<p>
-							<ul class="colorlib-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="#"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</p>
-					</div>
-					<div class="col footer-col colorlib-widget">
-						<h4>Customer Care</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">Returns/Exchange</a></li>
-								<li><a href="#">Gift Voucher</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Special</a></li>
-								<li><a href="#">Customer Services</a></li>
-								<li><a href="#">Site maps</a></li>
-							</ul>
-						</p>
-					</div>
-					<div class="col footer-col colorlib-widget">
-						<h4>Information</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#">About us</a></li>
-								<li><a href="#">Delivery Information</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Support</a></li>
-								<li><a href="#">Order Tracking</a></li>
-							</ul>
-						</p>
-					</div>
-
-					<div class="col footer-col">
-						<h4>News</h4>
-						<ul class="colorlib-footer-links">
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="#">Press</a></li>
-							<li><a href="#">Exhibitions</a></li>
-						</ul>
-					</div>
-
-					<div class="col footer-col">
-						<h4>Contact Information</h4>
-						<ul class="colorlib-footer-links">
-							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="#">yoursite.com</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="copy">
-				<div class="row">
-					<div class="col-sm-12 text-center">
-						<p>
-							<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
-							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
+	
 	</div>
 
 	<div class="gototop js-top">
@@ -271,6 +242,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 	
 	<!-- jQuery -->
+<!-- jQuery -->
 	<script src="../js/custjs/jquery.min.js"></script>
    <!-- popper -->
    <script src="../js/custjs/popper.min.js"></script>
@@ -293,6 +265,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="../js/custjs/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="../js/custjs/main.js"></script>
+
+	
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+	
+	<script src="../js/bootstrap-toggle.js"></script>
 
 	</body>
 </html>
