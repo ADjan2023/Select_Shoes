@@ -8,12 +8,13 @@ if(isset($_POST['cid'])){
 	$invoice=mt_rand();
 	$date=date("Y/m/d");
 	$status="pending";
+	$size=$_POST['size'];
 	if(create_order_ctr($cid,$invoice,$date,$status)==TRUE){
 	$result=show_cart_ctr($cid,0);
 	$oid=show_order_ctr($cid,$invoice);
 	$i=0;
 	while($i<count($result)){
-		order_details($oid['order_id'],$result[$i]['p_id'],$result[$i]['qty']);
+		order_details($oid['order_id'],$result[$i]['p_id'],$result[$i]['qty'],$size);
 		$i++;
 	}
 	$status="Failed";

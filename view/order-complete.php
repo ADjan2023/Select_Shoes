@@ -278,15 +278,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="../js/custjs/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="../js/custjs/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script >
-Swal.fire({
-  icon: 'success',
-  title: 'Purchase Successful',
-  showConfirmButton: false,
- timer: 4000,
-})
-	</script>
+
 
 	</body>
 </html>

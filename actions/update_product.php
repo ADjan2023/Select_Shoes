@@ -27,10 +27,7 @@ if(isset($_POST['update'])){
 
 			header('Location:../Admin/view_product.php');
 		}
-		else{
-	echo "Unable to delete image";
-
-}
+		
 
 } else if(isset($_POST['updateimg'])){
 

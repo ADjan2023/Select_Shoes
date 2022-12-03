@@ -289,6 +289,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<!-- Main -->
 	<script src="../js/custjs/main.js"></script>
 
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 <script type="text/javascript">const paymentForm = document.getElementById('paymentForm');
   paymentForm.addEventListener("submit", payWithPaystack, false);
 
@@ -302,6 +306,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     currency:'GHS',
      ref: ''+Math.floor((Math.random() * 1000000000) + 1),
     onClose: function(){
+    	Swal.fire({
+  icon: 'error',
+  title: 'Purchase Failed',
+  showConfirmButton: false,
+ timer: 4000,
+});
     document.getElementById("fail").submit();
     },
     callback: function(response){
@@ -309,6 +319,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
               url:"../actions/process.php?reference="+ response.reference,
               method:'GET',
               success: function (response){
+              	Swal.fire({
+  icon: 'success',
+  title: 'Purchase Successful',
+  showConfirmButton: false,
+ timer: 4000,
+});
               	document.getElementById("clearCart").submit();
                /* window.location.href = "../view/order-complete.php";*/
               }

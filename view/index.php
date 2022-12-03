@@ -19,7 +19,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
 
 	 <!-- Icon Font Stylesheet -->
-	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	 
  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<!-- Animate.css -->
@@ -67,11 +67,12 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
-					<div class="row">
-						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px"></a></div>
+					<div >
+						<div class="col-sm-7 col-md-9" style="position: absolute; top: 10px;left: 10px;">
+							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px" ></a></div>
 						</div>
-						<div class="col-sm-5 col-md-3">
+						
+						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
 							
 							<div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,14 +97,14 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
              
           
         </p>
-    <a class="dropdown-item" href="../actions/logout.php"><h4 style="padding-top: 10px;">Logout</h4></a>
+    <a class="dropdown-item" href="../actions/logout.php">Logout</a>
   </div>
 </div>
 
 						</div>
 						
-			         
-		         </div>
+			         </div>
+		         
 					<div class="row">
 						<div class="col-sm-10 text-left menu-1">
 							<ul>
@@ -116,15 +117,15 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
     <p class="dropdown-item" style="padding-top: 10px; background-color: #840212; color: white;">View Profile</p>
   </div>
 </li>
-								</li>
+								
 								<li><a href="">About</a></li>
 								<li><a href="">Contact</a></li>
 								<li><a href="order-details.php">View Orders</a></li>
 								
 								 
-								<li class="cart"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
+								<li style="padding-left: 240px"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
 
-								<li class="cart" ></li>
+							
 							</ul>
 
 						</div>
