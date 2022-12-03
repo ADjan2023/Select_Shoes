@@ -17,7 +17,14 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	<link href="img/favicon.ico" rel="icon">
 
+<link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	
 
+
+	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="../doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<!-- Icon Font Stylesheet -->
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
@@ -48,20 +55,13 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/custcss/style.css">
-	<link rel="canonical" href="http://www.bootstraptoggle.com">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
 	
-
-
-	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
-	<link href="../doc/stylesheet.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	
 
 </head>
 <body>
 
-	
+	<div class="colorlib-loader"></div>
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
@@ -438,16 +438,18 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 		<script src="../js/custjs/bootstrap-datepicker.js"></script>
 		<!-- Stellar Parallax -->
 		<script src="../js/custjs/jquery.stellar.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+
+		<script src="../js/bootstrap-toggle.js"></script>
 		<!-- Main -->
 		<script src="../js/custjs/main.js"></script>
 
 
 
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
-
-
-		<script src="../js/bootstrap-toggle.js"></script>
+		
 
 	</body>
 	</html>
