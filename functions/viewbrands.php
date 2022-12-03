@@ -280,7 +280,7 @@ function showProducts(){
 			<div class="col-md-2 d-flex align-items-stretch"  >
 				<div class="card" style="width: 18rem;  ">
 					<div >
-						<span style="position: absolute; background-color:  white; opacity: 60%; padding-left: 60px;padding-right: 48.7px;" ><button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#image".$i;?>'><i class="fa-solid fa-camera"></i>  Change image
+						<span style="position: absolute; background-color:  white; opacity: 60%;width: 18rem; text-align: center;" ><button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#image".$i;?>'><i class="fa-solid fa-camera"></i>  Change image
 							</button>
 						</span>
 
@@ -288,14 +288,14 @@ function showProducts(){
 
 
 				</div>
-					<div class="card-body"  >
+					<div class="card-body" style="text-align: center;" >
 
 						<h5 class="card-subtitle mb-2 text-muted"><?php echo $result[$i]['product_title'];  ?></h5>
 						<h6 class="card-subtitle mb-2 text-muted"><?php echo $result[$i]['product_price'];  ?> GHS</h6>
 						<p class="card-text"><?php echo $result[$i]['product_desc'];  ?></p>
 						
 					</div>
-					<div style="position: bottom; padding-left: 30px;">
+					<div style="position: bottom; width: 18rem; text-align: center;">
 						
 						<button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#exampleModal".$i;?>'><i class="fas fa-user-edit"></i> Edit</button>
 						<form class="btn mr-2" method="POST" action="../actions/delete_product.php" onSubmit="return confirm('Do you want to delete this product?') ">
