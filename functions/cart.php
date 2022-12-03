@@ -204,7 +204,7 @@ function orderConfirm($id){
 										<p><button class="btn btn-primary" type="submit" style="background-color: #840212;width: 280px;"  onclick="payWithPaystack()"><img src="../images/paystack.png" height="20px">  Paystack</button></p>
 									</form>
 
-									<script src="https://www.paypal.com/sdk/js?client-id=AZ2NCodoT7Bp5v7vc5PaBM9qkwBE8lrzn8mygnRIbLB2UqO-9N54j5TZxYCPjNVIXpTON1yb2c2j06jC&currency=USD"></script>
+									<script src="https://www.paypal.com/sdk/js?client-id=AWUF9-aXKLnlGhODkgXQQxytoQg8aa__zWW3ExhcgD0rXSSMOWgbFlPa26pg78tL0I1EssnMiqvXx0X3&currency=USD"></script>
 									<div id="paypal-button-container"></div>
 									<form id="clearCart" method="POST" action="../actions/clear_cart.php">
 										<input type="hidden" name="cid" required value="<?php echo $_SESSION['id']; ?>" />
