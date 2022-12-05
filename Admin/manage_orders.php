@@ -15,7 +15,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
+<link rel="icon" href="../images/custimages/bg.png">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 

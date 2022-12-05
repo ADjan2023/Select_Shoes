@@ -17,7 +17,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 	 <link href="img/favicon.ico" rel="icon">
 
-
+<link rel="icon" href="../images/custimages/bg.png">
 	 <!-- Icon Font Stylesheet -->
 	 
  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
