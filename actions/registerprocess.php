@@ -14,7 +14,14 @@ $country=$_POST['country'];
 $city=$_POST['city'];
 $contact=$_POST['contact'];
 $role=2;
-	if ( $unencryptpass==$confirmpass) {
+
+if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)){
+	echo "hi";
+} else{
+	echo "bye";
+}
+}
+	/*if ( $unencryptpass==$confirmpass) {
 
 		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)==TRUE){
 			header('Location:../Login/login.php');
@@ -30,7 +37,7 @@ $role=2;
 		$_SESSION['error'] = 'Unable to register user!';		
 		header('Location:../Login/register.php');
 	}
-}
+}*/
 else {
 	
 	header('Location:../Login/register.php');
