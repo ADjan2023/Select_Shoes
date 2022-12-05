@@ -131,8 +131,8 @@ session_start();
   </div>
 </li>
 								
-								<li><a href="">About</a></li>
-								<li><a href="">Contact</a></li>
+								<li><a href="about.php">About</a></li>
+								<li><a href="contact.php">Contact</a></li>
 								<li><a href="order-details.php">View Orders</a></li>
 								
 								 
@@ -237,6 +237,61 @@ session_start();
 	
 	</div>
 
+		<footer id="colorlib-footer" role="contentinfo">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col footer-col colorlib-widget">
+						<h4 style="color: white;">About Select Shoes</h4>
+						<p>Online Marketplace Specializing in Authentic Footwear</p>
+						<p>
+							<ul class="colorlib-social-icons" >
+								<li><a href="https://twitter.com/SneakerSelectGH?s=09"><i class="fa-brands fa-twitter" style="color: white;"></i></a></li>
+								<li><a href="https://www.facebook.com/SneakerSelectGH"><i class="fa-brands fa-facebook" style="color: white;"></i></a></li>
+								<li><a href="https://instagram.com/select.shoesgh?igshid=ZmRlMzRkMDU="><i class="fa-brands fa-instagram" style="color: white;"></i></a></li>
+								
+							</ul>
+						</p>
+					</div>
+					<div class="col footer-col colorlib-widget">
+						<h4 style="color: white;">Information</h4>
+						<p>
+							<ul class="colorlib-footer-links">
+								<li ><a href="about.php" style="color: white;">About us</a></li>
+								<li ><a href="about.php" style="color: white;">Delivery Information</a></li>
+								<li ><a href="about.php" style="color: white;">Privacy Policy</a></li>
+								<li ><a href="contact.php" style="color: white;">Support</a></li>
+								<li ><a href="about.php" style="color: white;">Order Tracking</a></li>
+							</ul>
+						</p>
+					</div>
+
+					
+
+					<div class="col footer-col">
+						<h4 style="color: white;">Contact Information</h4>
+						<ul class="colorlib-footer-links">
+							
+							<li ><a href="tel:+233546311192" style="color: white;">+ 233 54 631 1192</a></li>
+							<li><a href="mailto:info@yoursite.com" style="color: white;">sneakerselectgh@gmail.com</a></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p>
+							<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
+								<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>

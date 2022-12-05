@@ -1,12 +1,9 @@
 <?php 
 session_start();
+require("../functions/custviewprod.php");
 
-
-if(isset($_POST['cid'])){
-	include("../functions/custviewprod.php");
-	?>
-
-	<!DOCTYPE HTML>
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<title>Sneaker Select</title>
@@ -118,7 +115,7 @@ if(isset($_POST['cid'])){
 				<div class="row">
 					<div class="col-sm-10 text-left menu-1">
 						<ul>
-							<li class="active"><a href="index.php">Home</a></li>
+							<li ><a href="index.php">Home</a></li>
 							<li>
 								<a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Brands
@@ -141,7 +138,7 @@ if(isset($_POST['cid'])){
 							</li>
 
 							<li><a href="about.php">About</a></li>
-							<li><a href="contact.php">Contact</a></li>
+							<li class="active"><a href="contact.php">Contact</a></li>
 							<?php
 						if (!empty($_SESSION['id']) and !empty($_SESSION['name']) and !empty($_SESSION['email']) and !empty($_SESSION['role']) and $_SESSION['role']!=1 ){
 
@@ -163,6 +160,7 @@ if(isset($_POST['cid'])){
 				</div>
 			</div>
 		</div>
+		
 			<div class="sale">
 				<div class="container">
 					<div class="row">
@@ -171,12 +169,12 @@ if(isset($_POST['cid'])){
 								<div class="owl-carousel2">
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">Merry Christmas and a Happy New Year</a></h3>
+											<h3><a href="#">New Website</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">New Website</a></h3>
+											<h3><a href="#">Christmas Sale Incoming!</a></h3>
 										</div>
 									</div>
 								</div>
@@ -186,158 +184,81 @@ if(isset($_POST['cid'])){
 				</div>
 			</div>
 		</nav>
-		<!-- <aside id="colorlib-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<li style="background-image: url(../images/custimages/slide1.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">Quality</h1>
-					   					<h2 class="head-2">Authentic</h2>
-					   					<h2 class="head-3">Shoes</h2>
-					   					<p class="category"><span>New trending shoes</span></p>
-					   					<p><a href="" class="btn btn-primary">Shop Collection</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(../images/custimages/slide2.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">Christmas</h1>
-					   					<h2 class="head-2">Sale</h2>
-					   					<h2 class="head-3"><strong class="font-weight-bold">20%</strong> Off</h2>
-					   					<p class="category"><span>Big sale football boots</span></p>
-					   					<p><a href="" class="btn btn-primary">Shop Collection</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(../images/custimages/slide3.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">New</h1>
-					   					<h2 class="head-2">Arrival</h2>
-					   					<h2 class="head-3">up to <strong class="font-weight-bold">30%</strong> off</h2>
-					   					<p class="category"><span>New Jordan's</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			  	</ul>
-		  	</div>
-		  </aside> -->
 
-		<!-- <nav class="colorlib-nav" role="navigation">
-			<div class="top-menu">
-				<div class="container">
-					<div class="colorlib-intro">
-					
-						
-						
-			            <form action="#" class="search-wrap">
-			               <div class="form-group">
-			                  <input type="search" class="form-control search" placeholder="Search Brand">
-			                  <button class="btn btn-primary submit-search text-center" type="submit"><i class="fa fa-search"></i></button>
-			               </div>
-			            </form>
-			         
-			   
-					
-				</div>
-			</div>
-				</div>
-			</nav> -->
-
-		<!-- <div class="colorlib-product">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-sm-6 text-center">
-						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(images/men.jpg);"></a>
-							<div class="desc">
-								<h2><a href="#">Shop Men's Collection</a></h2>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 text-center">
-						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(images/women.jpg);"></a>
-							<div class="desc">
-								<h2><a href="#">Shop Women's Collection</a></h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-
-		<div class="colorlib-product">
+		<div class="breadcrumbs">
 			<div class="container">
-				<div class="row row-pb-md">
-					
-					
-					
-					<?php 
-
-					$input=$_POST['cid'];
-					seeCat($input);
-					?>
-					
-					
+				<div class="row">
+					<div class="col">
+						<p class="bread"><span><a href="index.php">Home</a></span> / <span>Contact</span></p>
+					</div>
 				</div>
-				
 			</div>
 		</div>
 
-		<!-- <div class="colorlib-partner">
+
+		<div id="colorlib-contact">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-						<h2>Trusted Partners</h2>
+					<div class="col-sm-12">
+						<h3>Contact Information</h3>
+						<div class="row contact-info-wrap">
+							
+							<div class="col-md-3">
+								<p><span><i class="fa fa-phone"></i></span> <a href="tel://1234567920">+ 233 546 311 1192</a></p>
+							</div>
+							<div class="col-md-3">
+								<p><span><i class="fa fa-envelope"></i></span> <a href="mailto:sneakerselectgh@gmail.com">sneakerselectgh@gmail.com</a></p>
+							</div>
+							
+						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col partner-col text-center">
-						<img src="images/brand-1.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					<div class="col-md-6">
+						<div class="contact-wrap">
+							<h3>Get In Touch</h3>
+							<form action="../actions/contact.php" class="contact-form" method="POST">
+								<div class="row">
+									
+									<div class="w-100"></div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="email">Email</label>
+											<input type="text" id="email" class="form-control" name="email" placeholder="Your email address">
+										</div>
+									</div>
+									<div class="w-100"></div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="subject">Subject</label>
+											<input type="text" id="subject" name="subject" class="form-control" placeholder="Your subject of this message">
+										</div>
+									</div>
+									<div class="w-100"></div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" name="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+										</div>
+									</div>
+									<div class="w-100"></div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<input type="submit" value="Send Message" name="send" class="btn btn-primary">
+										</div>
+									</div>
+								</div>
+							</form>		
+						</div>
 					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-2.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-3.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-4.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-5.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
+					<!-- <div class="col-md-6">
+						<div id="map" class="colorlib-map"></div>		
+					</div> -->
 				</div>
 			</div>
-		</div> -->
+		</div>
 
-		
-		<footer id="colorlib-footer" role="contentinfo">
+	<footer id="colorlib-footer" role="contentinfo">
 			<div class="container">
 				<div class="row row-pb-md">
 					<div class="col footer-col colorlib-widget">
@@ -392,11 +313,11 @@ if(isset($_POST['cid'])){
 				</div>
 			</footer>
 		</div>
+
 		<div class="gototop js-top">
 			<a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 		</div>
 
-		<!-- jQuery -->
 		<!-- jQuery -->
 		<script src="../js/custjs/jquery.min.js"></script>
 		<!-- popper -->
@@ -418,26 +339,36 @@ if(isset($_POST['cid'])){
 		<script src="../js/custjs/bootstrap-datepicker.js"></script>
 		<!-- Stellar Parallax -->
 		<script src="../js/custjs/jquery.stellar.min.js"></script>
-		<!-- Main -->
-		<script src="../js/custjs/main.js"></script>
-
-
-
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
 
 
 		<script src="../js/bootstrap-toggle.js"></script>
+		<!-- Main -->
+		<script src="../js/custjs/main.js"></script>
 
 
+<?php
+if(!empty($_SESSION['contact']) and $_SESSION['contact']=='success'){
+    ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script >
+Swal.fire({
+  icon: 'success',
+  title: 'Email Successfully Sent',
+  showConfirmButton: false,
+ timer: 4000,
+})
+    </script>
 
-	</body>
-	</html>
-
-	<?php 
-}
-else{
-	header('Location:../view');
+    <?php
+    unset($_SESSION['contact']);
 }
 
 ?>
+
+
+		
+
+	</body>
+	</html>

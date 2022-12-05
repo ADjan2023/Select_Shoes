@@ -26,6 +26,7 @@ if(isset($_POST['login'])){
 			$_SESSION['id'] = $result['customer_id'];
 			$_SESSION['name'] = $result['customer_name'];
 			$_SESSION['email'] = $result['customer_email'];
+			$_SESSION['role'] = $result['user_role'];
 			header('Location:../view/index.php');
 		}
 		else{

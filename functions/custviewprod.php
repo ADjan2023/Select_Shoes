@@ -260,7 +260,7 @@ function seeCat($input){
 						<span class="price">GH¢ <?php echo $result[$i]['product_price'];  ?></span>
 						<form action="../view/product-detail.php" method="POST">
 							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
-							<button class="btn btn-primary submit-search text-center" type="submit" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
+							<button class="btn btn-primary submit-search text-center" type="submit" name="view" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
 						</form>
 					</div>
 				</div>
@@ -315,7 +315,7 @@ function seeBrands($input){
 						<span class="price">GH¢ <?php echo $result[$i]['product_price'];  ?></span>
 						<form action="../view/product-detail.php" method="POST">
 							<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
-							<button class="btn btn-primary submit-search text-center" type="submit" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
+							<button class="btn btn-primary submit-search text-center" type="submit" name="view" style="background-color: #840212;"><i class="fa fa-eye"> View Product</i></button>
 						</form>
 					</div>
 				</div>
@@ -339,8 +339,9 @@ function showAdverts(){
     while($i < count($result)){
       ?>
    
+				
 
-<li style="background-image: url(../images/custimages/slide2.jpg);">
+<li style="background-image: url(../images/adverts/<?php echo $result[$i]['company_image'];  ?>);">
 					<div class="overlay"></div>
 					<div class="container-fluid">
 						<div class="row">

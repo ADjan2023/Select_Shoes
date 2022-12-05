@@ -1,29 +1,33 @@
 <?php 
 session_start();
-if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=2) ){
-	header("location:../Login/login.php"); // redirects to login page
-        exit;
-}
+
 if(isset($_POST['view'])){
 	include("../functions/custviewprod.php");
 ?>
 
 <!DOCTYPE HTML>
 <html>
-	<head>
+<head>
 	<title>Sneaker Select</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
-	 <link href="img/favicon.ico" rel="icon">
+	<link href="img/favicon.ico" rel="icon">
+
+<link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	
 
 
-	 <!-- Icon Font Stylesheet -->
-	 
- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="../doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Icon Font Stylesheet -->
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/custcss/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -50,19 +54,12 @@ if(isset($_POST['view'])){
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/custcss/style.css">
- <link rel="canonical" href="http://www.bootstraptoggle.com">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	
 	
 
+</head>
+<body>
 
-	<link href="../css/bootstrap-toggle.css" rel="stylesheet">
-	<link href="../doc/stylesheet.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	
-
-	</head>
-	<body>
-		
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -71,82 +68,100 @@ if(isset($_POST['view'])){
 				<div class="container">
 					<div >
 						<div class="col-sm-7 col-md-9" style="position: absolute; top: 10px;left: 10px;">
-							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" width="170px" ></a></div>
+							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" height="100px" ></a></div>
 						</div>
-						
+						<?php
+						if (!empty($_SESSION['id']) and !empty($_SESSION['name']) and !empty($_SESSION['email']) and !empty($_SESSION['role']) and $_SESSION['role']!=1 ){
+
+	
+
+
+						?>
 						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
 							
 							<div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  	<?php
+								<a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<?php
 
 
-                            if (!empty($_SESSION['name'])){
+									if (!empty($_SESSION['name'])){
 
-                                echo $_SESSION['name'];
+										echo $_SESSION['name'];
 
 
-                            }
-                        ?>
-   <img class="rounded-circle me-lg-2" src="../images/profile.png" alt="" style="width: 40px; height: 40px;">
-  </a>
+									}
+									?>
+									<img class="rounded-circle me-lg-2" src="../images/profile.png" alt="" style="width: 40px; height: 40px;">
+								</a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-  	
-    <p class="dropdown-item" ><?php
-      newsletter($_SESSION['id']);
-      ?>
-             
-          
-        </p>
-    <a class="dropdown-item" href="../actions/logout.php">Logout</a>
-  </div>
-</div>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
+									<p class="dropdown-item" ><?php
+									newsletter($_SESSION['id']);
+									?>
+
+
+								</p>
+								<a class="dropdown-item" href="../actions/logout.php">Logout</a>
+							</div>
 						</div>
-						
-			         </div>
-		         
-					<div class="row">
-						<div class="col-sm-10 text-left menu-1">
-							<ul>
-								<li class="active"><a href="index.php">Home</a></li>
-								<li>
-  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Brands
-  </a>
-  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-   <?php
-   allBrands();
-   ?>
-  </div>
-</li>
-								<li>
-  <a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Categories
-  </a>
-  <div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-   <?php
-   allCategories();
-   ?>
-  </div>
-</li>
-								
-								<li><a href="">About</a></li>
-								<li><a href="">Contact</a></li>
-								<li><a href="order-details.php">View Orders</a></li>
-								
-								 
-								<li style="padding-left: 100px"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
 
-							
-							</ul>
-
-						</div>
-						
 					</div>
+					<?php
+}
+
+					?>
+
+				</div>
+
+				<div class="row">
+					<div class="col-sm-10 text-left menu-1">
+						<ul>
+							<li class="active"><a href="index.php">Home</a></li>
+							<li>
+								<a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Brands
+								</a>
+								<div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<?php
+									allBrands();
+									?>
+								</div>
+							</li>
+							<li>
+								<a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; padding-bottom: 7px; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Categories
+								</a>
+								<div style="padding-bottom: 0px; background-color:  #840212;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<?php
+									allCategories();
+									?>
+								</div>
+							</li>
+
+							<li><a href="about.php">About</a></li>
+							<li><a href="contact.php">Contact</a></li>
+							<?php
+						if (!empty($_SESSION['id']) and !empty($_SESSION['name']) and !empty($_SESSION['email']) and !empty($_SESSION['role']) and $_SESSION['role']!=1 ){
+
+	
+
+
+						?>
+							<li><a href="order-details.php">View Orders</a></li>
+
+							<li style="padding-left: 100px"><a href="cart.php"><i class="fas fa-shopping-cart"></i> Cart [<?php countCart($_SESSION['id']); ?>]</a></li>
+
+							<?php
+						}
+							?>
+						</ul>
+
+					</div>
+
 				</div>
 			</div>
+		</div>
 		
 			<div class="sale">
 				<div class="container">
@@ -285,64 +300,44 @@ if(isset($_POST['view'])){
 			</div>
 		</div>
 
+		
 		<footer id="colorlib-footer" role="contentinfo">
 			<div class="container">
 				<div class="row row-pb-md">
 					<div class="col footer-col colorlib-widget">
-						<h4>About Footwear</h4>
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+						<h4 style="color: white;">About Select Shoes</h4>
+						<p>Online Marketplace Specializing in Authentic Footwear</p>
 						<p>
-							<ul class="colorlib-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="#"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
+							<ul class="colorlib-social-icons" >
+								<li><a href="https://twitter.com/SneakerSelectGH?s=09"><i class="fa-brands fa-twitter" style="color: white;"></i></a></li>
+								<li><a href="https://www.facebook.com/SneakerSelectGH"><i class="fa-brands fa-facebook" style="color: white;"></i></a></li>
+								<li><a href="https://instagram.com/select.shoesgh?igshid=ZmRlMzRkMDU="><i class="fa-brands fa-instagram" style="color: white;"></i></a></li>
+								
 							</ul>
 						</p>
 					</div>
 					<div class="col footer-col colorlib-widget">
-						<h4>Customer Care</h4>
+						<h4 style="color: white;">Information</h4>
 						<p>
 							<ul class="colorlib-footer-links">
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">Returns/Exchange</a></li>
-								<li><a href="#">Gift Voucher</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Special</a></li>
-								<li><a href="#">Customer Services</a></li>
-								<li><a href="#">Site maps</a></li>
-							</ul>
-						</p>
-					</div>
-					<div class="col footer-col colorlib-widget">
-						<h4>Information</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#">About us</a></li>
-								<li><a href="#">Delivery Information</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Support</a></li>
-								<li><a href="#">Order Tracking</a></li>
+								<li ><a href="about.php" style="color: white;">About us</a></li>
+								<li ><a href="about.php" style="color: white;">Delivery Information</a></li>
+								<li ><a href="about.php" style="color: white;">Privacy Policy</a></li>
+								<li ><a href="contact.php" style="color: white;">Support</a></li>
+								<li ><a href="about.php" style="color: white;">Order Tracking</a></li>
 							</ul>
 						</p>
 					</div>
 
-					<div class="col footer-col">
-						<h4>News</h4>
-						<ul class="colorlib-footer-links">
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="#">Press</a></li>
-							<li><a href="#">Exhibitions</a></li>
-						</ul>
-					</div>
+					
 
 					<div class="col footer-col">
-						<h4>Contact Information</h4>
+						<h4 style="color: white;">Contact Information</h4>
 						<ul class="colorlib-footer-links">
-							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="#">yoursite.com</a></li>
+							
+							<li ><a href="tel:+233546311192" style="color: white;">+ 233 54 631 1192</a></li>
+							<li><a href="mailto:info@yoursite.com" style="color: white;">sneakerselectgh@gmail.com</a></li>
+							
 						</ul>
 					</div>
 				</div>
@@ -352,7 +347,7 @@ if(isset($_POST['view'])){
 					<div class="col-sm-12 text-center">
 						<p>
 							<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
 								<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
 							</p>
