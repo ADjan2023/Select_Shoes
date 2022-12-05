@@ -17,7 +17,7 @@ $role=2;
 
 if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)){
 	echo "hi";
-} else{
+} else if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)==false){
 	echo "bye";
 }
 }
