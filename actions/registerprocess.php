@@ -17,15 +17,17 @@ $role=2;
 
 
 	if ( $unencryptpass===$confirmpass) {
-
-		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===TRUE){
-			header('Location:../Login/login.php');
-		}
-		else if (verify_customer_ctr($email)==TRUE){
+		if (verify_customer_ctr($email)==TRUE){
 			
 			$_SESSION['error'] = 'User Already Exists!';		
 			header('Location:../Login/register.php');
 		}	
+		else 
+
+		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===TRUE){
+			header('Location:../Login/login.php');
+		}
+		
 	}
 	else{
 		
