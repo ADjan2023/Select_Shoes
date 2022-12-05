@@ -280,9 +280,9 @@ function showProducts(){
 			<div class="col-md-2 d-flex align-items-stretch"  >
 				<div class="card" style="width: 18rem;  ">
 					<div >
-						<span style="position: absolute; background-color:  white; opacity: 60%;width: 18rem; text-align: center;" ><button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#image".$i;?>'><i class="fa-solid fa-camera"></i>  Change image
+						<div class="card-top" style="text-align: center; "  ><button  type="button" class="btn " data-toggle="modal" data-target='<?php echo "#image".$i;?>'><i class="fa-solid fa-camera"></i>  Change image
 							</button>
-						</span>
+						</div>
 
 					<img src="../images/products/<?php echo $result[$i]['product_image'];  ?>" class="card-img-top">
 
@@ -295,7 +295,7 @@ function showProducts(){
 						<p class="card-text"><?php echo $result[$i]['product_desc'];  ?></p>
 						
 					</div>
-					<div style="position: bottom; width: 18rem; text-align: center;">
+					<div class="card-bottom" style="text-align: center;" >
 						
 						<button type="button" class="btn " data-toggle="modal" data-target='<?php echo "#exampleModal".$i;?>'><i class="fas fa-user-edit"></i> Edit</button>
 						<form class="btn mr-2" method="POST" action="../actions/delete_product.php" onSubmit="return confirm('Do you want to delete this product?') ">
@@ -360,7 +360,7 @@ function showProducts(){
 								<input type="hidden" name="pid" value="<?php echo $result[$i]['product_id'];  ?>">
 
 
-							<input type="file" accept="image/*" style="background: white;" class="form-control" name="image[]" id="recipient-name"  ><br>
+							<input type="file" accept="image/*" style="background: white;" class="form-control" name="image[]" id="recipient-name"  required><br>
 							
 							</div>
 							<div class="modal-footer">

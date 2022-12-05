@@ -79,12 +79,13 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
                         }
                         ?>
+                       
 
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="admin_dash.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                   
+                    <a href="admin_dash.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
                     <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -106,13 +107,14 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                             <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
                     </div> -->
-                   <a href="add_product.php" class="nav-item nav-link"><i class="fa fa-plus me-2"></i>Add Product</a>
+                    <a href="add_product.php" class="nav-item nav-link"><i class="fa fa-plus me-2"></i>Add Product</a>
                 <a href="view_product.php" class="nav-item nav-link "><i class="fa fa-eye me-2"></i>View Products</a>
                  <a href="manage_orders.php" class="nav-item nav-link "><i class="fa fa-th me-2"></i>Manage Orders</a>
-                 <a href="manage_adverts.php" class="nav-item nav-link  "><i class="fa fa-dollar-sign me-2"></i>Manage Adverts</a>
-                      <a href="newsletter.php" class="nav-item nav-link active"><i class="fa fa-newspaper me-2"></i>Send Newsletter</a>
+                 <a href="manage_adverts.php" class="nav-item nav-link active "><i class="fa fa-dollar-sign me-2"></i>Manage Adverts</a>
+                 
+                 <a href="newsletter.php" class="nav-item nav-link "><i class="fa fa-newspaper me-2"></i>Send Newsletter</a>
                 </div>
-                
+
             </nav>
         </div>
         <!-- Sidebar End -->
@@ -219,49 +221,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
         <!-- Navbar End -->
 
 
-        <!-- Sale & Revenue Start -->
-       <!--  <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Sale & Revenue End -->
-
+       
 
         <!-- Sales Chart Start -->
             <!-- <div class="container-fluid pt-4 px-4">
@@ -310,31 +270,54 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
   </div>
 </div> -->
 
-<!-- Add product start -->
+            <!-- Brand and categories Start -->
             <div class="container-fluid pt-4 px-4">
-           <form action="../actions/send.php" method="POST" >
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Newsletter</h6>
-                            
-                          
-                           
-                           
-                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingKey" name="subject" 
-                                    placeholder="Keyword" required>
-                                <label for="floatingInput">Subject</label>
-                            </div>
-                           
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" placeholder="Enter your message here" name="message" 
-                                    id="floatingTextarea" style="height: 150px;"></textarea>
-                                <label for="floatingTextarea">Message</label>
-                            </div>
-                              <button type="submit" class="btn btn-primary" name="send">Send Newsletter</button>
-                        </div>
+                <div class="row g-4">
+                   
+                
+<!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Manage Adverts</h6>
+                        <a href="">Show All</a>
                     </div>
-                </form>
-            <!-- Add product end -->
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                   
+                                    <th scope="col">Company Name</th>
+                                    <th scope="col">Company Email</th>
+                                    <th scope="col">Status</th>
+                                    
+                                    <th scope="col">Action</th>
+                                    
+                                    
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                    <?php
+
+                                        require("../functions/adverts.php");
+                                        viewAdverts();
+                                        
+                                    ?>     
+                                </tr>
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+                </div>
+            </div>
+            
+            <!-- Brand and categpries End -->
 <!-- <div id="brands"></div> -->
 
             <!-- Recent Sales Start -->
@@ -566,24 +549,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
 </script>
 
-<?php
-if($_SESSION['newsletter']=='success'){
-    ?>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script >
-Swal.fire({
-  icon: 'success',
-  title: 'Newsletter Successfully Sent',
-  showConfirmButton: false,
- timer: 4000,
-})
-    </script>
-
-    <?php
-    unset($_SESSION['newsletter']);
-}
-
-?>
+     
 
     <!-- Template Javascript -->
     <script src="../js/main1.js"></script>

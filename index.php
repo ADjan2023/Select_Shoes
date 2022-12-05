@@ -98,7 +98,39 @@ if (!empty($_SESSION['id'])){
 
             
 
-            
+            <?php
+            if($_SESSION['advert']=='yes'){
+    ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script >
+Swal.fire({
+  icon: 'success',
+  title: 'Advert Submitted Successfully',
+  showConfirmButton: false,
+ timer: 4000,
+})
+    </script>
+
+    <?php
+    unset($_SESSION['advert']);
+}
+else if ($_SESSION['advert']=='no'){
+     ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script >
+Swal.fire({
+  icon: 'error',
+  title: 'Failed To Add Advert',
+  showConfirmButton: false,
+ timer: 4000,
+})
+    </script>
+
+    <?php
+ unset($_SESSION['advert']);
+}
+
+            ?>
             
 
             
