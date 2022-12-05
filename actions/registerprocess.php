@@ -4,7 +4,9 @@ include("../controllers/customer_controller.php");
 include("../error/errordisplay");
 
 //collect form data
-$name=$_POST['fullname'];
+
+if(isset($_POST['register'])){
+	$name=$_POST['fullname'];
 $email=$_POST['email'];
 $unencryptpass=$_POST['password'];
 $confirmpass=$_POST['password2'];
@@ -13,7 +15,6 @@ $country=$_POST['country'];
 $city=$_POST['city'];
 $contact=$_POST['contact'];
 $role=2;
-if(isset($_POST['register'])){
 	if ( $unencryptpass==$confirmpass) {
 
 		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)==TRUE){
