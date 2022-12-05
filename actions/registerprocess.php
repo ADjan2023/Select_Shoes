@@ -1,6 +1,6 @@
 <?php
 //making action  aware of controller
-include("../controllers/customer_controller.php");
+require("../controllers/customer_controller.php");
 session_start();
 //collect form data
 
