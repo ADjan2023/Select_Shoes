@@ -1,8 +1,7 @@
 <?php
 //making action  aware of controller
 include("../controllers/customer_controller.php");
-
-
+session_start();
 //collect form data
 
 if(isset($_POST['register'])){
@@ -21,13 +20,13 @@ $role=2;
 			header('Location:../Login/login.php');
 		}
 		else{
-			session_start();
-			$_SESSION['error'] = 'Unable to register user!';		
+			
+			$_SESSION['error'] = 'User Already Exists!';		
 			header('Location:../Login/register.php');
 		}	
 	}
 	else{
-		session_start();
+		
 		$_SESSION['error'] = 'Unable to register user!';		
 		header('Location:../Login/register.php');
 	}

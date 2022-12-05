@@ -16,8 +16,6 @@ class customer_class extends db_connection
 	public function add_customer($name,$email,$password,$country,$city,$contact,$role)
 	{
 		$sql="INSERT INTO `customer`(`customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `user_role`) VALUES ('$name','$email','$password','$country','$city','$contact','$role')";
-		/*$db1=new db_connection
-		return $db1.db_query($sql);*/
 		return $this->db_query($sql);
 	}
 
