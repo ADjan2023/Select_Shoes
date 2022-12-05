@@ -2,7 +2,7 @@
 //making action  aware of controller
 require("../controllers/customer_controller.php");
 session_start();
-//collect form data
+
 
 if(isset($_POST['register'])){
 	$name=$_POST['fullname'];
@@ -28,10 +28,10 @@ $contact=$_POST['contact'];
 $role=2;
 
 
-		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)==TRUE){
+		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===TRUE){
 			header('Location:../Login/login.php');
 		}
-		else{
+		else if (add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===FALSE){
 			
 			$_SESSION['error'] = 'User Already Exists!';		
 			header('Location:../Login/register.php');
