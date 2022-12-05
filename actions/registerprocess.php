@@ -17,21 +17,11 @@ $role=2;
 
 
 	if ( $unencryptpass===$confirmpass) {
-		$name=$_POST['fullname'];
-$email=$_POST['email'];
-$unencryptpass=$_POST['password'];
-$confirmpass=$_POST['password2'];
-$password=password_hash($unencryptpass, PASSWORD_DEFAULT); 
-$country=$_POST['country'];
-$city=$_POST['city'];
-$contact=$_POST['contact'];
-$role=2;
-
 
 		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===TRUE){
 			header('Location:../Login/login.php');
 		}
-		else if (add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===FALSE){
+		else if (verify_customer_ctr($email)==TRUE){
 			
 			$_SESSION['error'] = 'User Already Exists!';		
 			header('Location:../Login/register.php');
