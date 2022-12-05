@@ -332,5 +332,38 @@ function seeBrands($input){
 	}
 
 }
+function showAdverts(){
+  $result=show_all_adverts_ctr();
+  $i=0;
+  if ($result!=false) {
+    while($i < count($result)){
+      ?>
+
+<li style="background-image: url(../images/adverts/<?php echo $result[$i]['company_image'];  ?>);">
+					<div class="overlay"></div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6 offset-sm-3 text-center slider-text">
+								<div class="slider-text-inner">
+									<div class="desc">
+										<h1 class="head-1"> <?php echo $result[$i]['company_name']; ?></h1>
+										<h2 class="head-2"><?php echo $result[$i]['company_email']; ?></h2>
+										
+										<p class="category"><span> <?php echo $result[$i]['company_info']; ?></span></p>
+										<p><a href="../Adverts/" class="btn btn-primary">Advertise Your Business</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+     <?php
+
+     $i++;
+   }
+
+ }
+
+}
 ?>
 

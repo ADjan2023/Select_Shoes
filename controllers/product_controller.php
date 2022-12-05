@@ -149,4 +149,8 @@ function select_brands_products_ctr($id){
 	$seecategories=new product_class();
 	return $seecategories->select_brands_products($id);
 }
+function show_all_adverts_ctr(){
+	$seeadvert=new product_class();
+	return $seeadvert->show_all_adverts();
+}
 ?>

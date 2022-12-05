@@ -14,7 +14,7 @@ function viewAdverts(){
         <td>
          <form method="POST" action="../actions/updateadvert.php" id="<?php echo "deliv".$i;  ?>">
                                       <input type="hidden" name="id" value="<?php echo $result[$i]['company_id'];  ?>">
-                                    
+                                      <input type="hidden" name="cemail" value="<?php echo $result[$i]['company_email'];  ?>">
                                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="status" onchange="getElementById('<?php echo "deliv".$i;  ?>').submit()">
                                         <?php
                                           if($result[$i]['Approved']=="No"){
@@ -116,36 +116,7 @@ function viewAdverts(){
 
 }
 
-function showAdverts(){
-  $result=show_all_adverts_ctr();
-  $i=0;
-  if ($result!=false) {
-    while($i < count($result)){
-      ?>
-      <div class="tt-item">
-        <div class="title-block">
-          <div class="title-block__label">
-          Adverstiment </div>
-          <h4 class="title-block__title">
-           <?php echo $result[$i]['company_name']; ?></h4>
-         </div>
-         <blockquote>
-          <p>
-           <?php echo $result[$i]['company_info']; ?>
-         </p>
-         <p><strong class="tt-base-color02">- <?php echo $result[$i]['company_email']; ?></strong></p>
-       </blockquote>
-     </div>
 
-
-     <?php
-
-     $i++;
-   }
-
- }
-
-}
 
 
 

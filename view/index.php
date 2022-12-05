@@ -183,7 +183,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 										<h2 class="head-2">Authentic</h2>
 										<h2 class="head-3">Shoes</h2>
 										<p class="category"><span>New trending shoes</span></p>
-										<p><a href="men.html" class="btn btn-primary">Advertise Your Business</a></p>
+										<p><a href="../Adverts/" class="btn btn-primary">Advertise Your Business</a></p>
 									</div>
 								</div>
 							</div>
@@ -201,31 +201,14 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 										<h2 class="head-2">Sale</h2>
 										<h2 class="head-3"><strong class="font-weight-bold">20%</strong> Off</h2>
 										<p class="category"><span>Big sale football boots</span></p>
-										<p><a href="men.html" class="btn btn-primary">Advertise Your Business</a></p>
+										<p><a href="../Adverts/" class="btn btn-primary">Advertise Your Business</a></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</li>
-				<li style="background-image: url(../images/custimages/slide2.jpg);">
-					<div class="overlay"></div>
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-6 offset-sm-3 text-center slider-text">
-								<div class="slider-text-inner">
-									<div class="desc">
-										<h1 class="head-1">Christmas</h1>
-										<h2 class="head-2">Sale</h2>
-										<h2 class="head-3"><strong class="font-weight-bold">20%</strong> Off</h2>
-										<p class="category"><span>Advertise Your Business</span></p>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
+			
 				<li style="background-image: url(../images/custimages/slide3.jpg);">
 					<div class="overlay"></div>
 					<div class="container-fluid">
@@ -237,13 +220,16 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 										<h2 class="head-2">Arrival</h2>
 										<h2 class="head-3">up to <strong class="font-weight-bold">30%</strong> off</h2>
 										<p class="category"><span>New Jordan's</span></p>
-										<p><a href="men.html" class="btn btn-primary">Advertise Your Business</a></p>
+										<p><a href="../Adverts/" class="btn btn-primary">Advertise Your Business</a></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</li>
+				<?php
+				showAdverts();
+				?>
 			</ul>
 		</div>
 	</aside>
