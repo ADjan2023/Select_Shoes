@@ -34,7 +34,7 @@ function viewBrands(){
 													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 												</div>
 												<div class="modal-body">
-													<form action="../actions/update_brand.php" method="POST" onSubmit="return confirm('Do you want to update this brand?') ">
+													<form action="../actions/update_brand.php" method="POST" >
 														<div class="form-group">
 
 															<input type="text" style="background: white;" class="form-control" name="bname" id="recipient-name" placeholder="<?php 
@@ -57,7 +57,7 @@ function viewBrands(){
 							</div>
 
 							
-							<form action="../actions/delete_brand.php" method="POST" onSubmit="return confirm('Do you want to delete this brand?') ">
+							<form action="../actions/delete_brand.php" method="POST" >
 								<input type="hidden" name="bid" value="<?php 
 								echo $result[$i]['brand_id']; 
 							?>">
@@ -119,7 +119,7 @@ function viewCategories(){
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
-										<form action="../actions/update_category.php" method="POST" onSubmit="return confirm('Do you want to update this category?') ">
+										<form action="../actions/update_category.php" method="POST" >
 											<div class="form-group">
 
 												<input type="text" style="background: white;" class="form-control" name="cname" id="recipient-name" placeholder="<?php 
@@ -140,7 +140,7 @@ function viewCategories(){
 						</div>
 					</div>
 				</div>
-				<form action="../actions/delete_category.php" method="POST" onSubmit="return confirm('Do you want to delete this category?') ">
+				<form action="../actions/delete_category.php" method="POST" >
 					<input type="hidden" name="cid" value="<?php 
 					echo $result[$i]['cat_id']; 
 				?>">
