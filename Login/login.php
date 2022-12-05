@@ -60,7 +60,24 @@
 			<script src="../js/popper.js"></script>
 			<script src="../js/bootstrap.min.js"></script>
 			<script src="../js/main.js"></script>
+			<?php
+if(!empty($_SESSION['registered']) and $_SESSION['registered']=='Yes'){
+    ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script >
+Swal.fire({
+  icon: 'success',
+  title: 'Account Created Successfully',
+  showConfirmButton: false,
+ timer: 4000,
+})
+    </script>
 
+    <?php
+    unset($_SESSION['registered']);
+}
+
+?>
 		</body>
 		</html>
 

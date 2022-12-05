@@ -25,6 +25,7 @@ $role=2;
 		else 
 
 		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===TRUE){
+			$_SESSION['registered'] = 'Yes';
 			header('Location:../Login/login.php');
 		}
 		
