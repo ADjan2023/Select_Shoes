@@ -338,8 +338,9 @@ function showAdverts(){
   if ($result!=false) {
     while($i < count($result)){
       ?>
+   
 
-<li style="background-image: url(../images/adverts/<?php echo $result[$i]['company_image'];  ?>);">
+<li style="background-image: url(../images/custimages/slide2.jpg);">
 					<div class="overlay"></div>
 					<div class="container-fluid">
 						<div class="row">

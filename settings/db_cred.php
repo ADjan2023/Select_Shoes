@@ -7,6 +7,6 @@ define("DATABASE", "heroku_a2e0576f69c7c1d");
 /*define("SERVER", "localhost");
 define("USERNAME","root");
 define("PASSWD", "");
-define("DATABASE", "shoppn");*/
-
+define("DATABASE", "shoppn");
+*/
 ?>
