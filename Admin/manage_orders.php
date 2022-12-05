@@ -279,11 +279,11 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Manage Orders</h6>
-                        <a href="">Show All</a>
+                        
                     </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
+                    <div class="table-responsive" style="overflow-y:scroll; height:700px; display:block; width: 100%; ">
+                        <table   class="table text-start align-middle table-bordered table-hover mb-0"  >
+                            <thead >
                                 <tr class="text-white">
                                    
                                     <th scope="col">Date</th>
@@ -298,7 +298,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody >
                                 <tr>
                                     
                                     <?php

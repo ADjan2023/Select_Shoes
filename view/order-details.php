@@ -186,8 +186,7 @@ session_start();
 			<div class="container">
 		
 				<div class="row row-pb-lg">
-					<div class="col-md-12">
-						<div class="product-name d-flex">
+					<div class="product-name d-flex">
 							<div class="one-forth text-left px-4">
 								<span>Invoice No.</span>
 							</div>
@@ -201,6 +200,8 @@ session_start();
 								<span>View</span>
 							</div>
 						</div>
+					<div class="col-md-12" style=" overflow-y:scroll; height:500px; display:block;" >
+						
 						
 						<?php
 					
