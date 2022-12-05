@@ -1,7 +1,7 @@
 <?php
 //making action  aware of controller
 include("../controllers/customer_controller.php");
-include("../error/errordisplay");
+
 
 //collect form data
 
