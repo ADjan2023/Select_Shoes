@@ -68,6 +68,7 @@ require("../functions/custviewprod.php");
 						<div class="col-sm-7 col-md-9" style="position: absolute; top: 10px;left: 10px;">
 							<div id="colorlib-logo" style="padding-bottom: 100px;"><a href="index.php"><img src="../images/custimages/logo1.png" height="100px" ></a></div>
 						</div>
+						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
 						<?php
 						if (!empty($_SESSION['id']) and !empty($_SESSION['name']) and !empty($_SESSION['email']) and !empty($_SESSION['role']) and $_SESSION['role']!=1 ){
 
@@ -75,7 +76,7 @@ require("../functions/custviewprod.php");
 
 
 						?>
-						<div class="col-sm-5 col-md-3" style="position: absolute; top: 10px;right: -150px; padding-top: 50px;">
+						
 							
 							<div class="dropdown show">
 								<a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,11 +105,27 @@ require("../functions/custviewprod.php");
 							</div>
 						</div>
 
-					</div>
+					
 					<?php
+} else{
+	?>
+<div class="dropdown show">
+								<a class="btn btn-secondary dropdown-toggle" style="background-color: #fff ; border: 0px; color: black; " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Guest User
+									<img class="rounded-circle me-lg-2" src="../images/profile.png" alt="" style="width: 40px; height: 40px;">
+								</a>
+
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+									
+								<a class="dropdown-item" href="../Login/login.php">Login</a>
+							</div>
+						</div>
+	<?php
 }
 
 					?>
+					</div>
 
 				</div>
 
