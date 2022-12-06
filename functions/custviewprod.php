@@ -367,5 +367,16 @@ function showAdverts(){
  }
 
 }
+
+function viewSales(){
+  $result=sales_count_ctr();
+  
+  if ($result!=false) {
+   echo $result['sales'];
+ }
+ else{
+  echo "0";
+}
+}
 ?>
 

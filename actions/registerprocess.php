@@ -5,7 +5,8 @@ session_start();
 
 
 if(isset($_POST['register'])){
-	$name=$_POST['fullname'];
+	$fname=$_POST['fname'];
+	$lname=$_POST['name'];
 $email=$_POST['email'];
 $unencryptpass=$_POST['password'];
 $confirmpass=$_POST['password2'];
@@ -24,7 +25,7 @@ $role=2;
 		}	
 		else 
 
-		if(add_customer_ctr($name,$email,$password,$country,$city,$contact,$role)===TRUE){
+		if(add_customer_ctr($fname,$lname,$email,$password,$country,$city,$contact,$role)===TRUE){
 			$_SESSION['registered'] = 'Yes';
 			header('Location:../Login/login.php');
 		}

@@ -6,9 +6,9 @@ require("../classes/customer_class.php");
 
 
 //--Register--//
-function add_customer_ctr($name,$email,$password,$country,$city,$contact,$role){
+function add_customer_ctr($fname,$lname,$email,$password,$country,$city,$contact,$role){
 	$addcontact=new customer_class();
-	return $addcontact->add_customer($name,$email,$password,$country,$city,$contact,$role);
+	return $addcontact->add_customer($fname,$lname,$email,$password,$country,$city,$contact,$role);
 }
 
 

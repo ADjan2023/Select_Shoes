@@ -153,4 +153,24 @@ function show_all_adverts_ctr(){
 	$seeadvert=new product_class();
 	return $seeadvert->show_all_adverts();
 }
+
+function sales_count_ctr(){
+	$countsales=new product_class();
+	return $countsales->sales_count();
+}
+
+function sales_number_ctr(){
+	$countsales=new product_class();
+	return $countsales->sales_number();
+}
+
+function client_number_ctr(){
+	$countsales=new product_class();
+	return $countsales->client_number();
+}
+
+function newsletter_number_ctr(){
+	$countsales=new product_class();
+	return $countsales->newsletter_number();
+}
 ?>

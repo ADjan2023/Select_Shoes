@@ -564,5 +564,48 @@ function manageOrders(){
 	}
 
 }
+function viewSales(){
+  $result=sales_count_ctr();
+  
+  if ($result!=false) {
+   echo $result['sales'];
+ }
+ else{
+  echo "0";
+}
+}
+
+function viewSalesNumber(){
+  $result=sales_number_ctr();
+  
+  if ($result!=false) {
+   echo $result['count'];
+ }
+ else{
+  echo "0";
+}
+}
+
+function viewClientNumber(){
+  $result=client_number_ctr();
+  
+  if ($result!=false) {
+   echo $result['count'];
+ }
+ else{
+  echo "0";
+}
+}
+
+function viewNewsletterNumber(){
+  $result=newsletter_number_ctr();
+  
+  if ($result!=false) {
+   echo $result['count'];
+ }
+ else{
+  echo "0";
+}
+}
 ?>
 

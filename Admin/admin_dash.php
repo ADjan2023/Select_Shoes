@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include("../functions/viewbrands.php");
 if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=1) ){
   
     header("location:../index.php"); // redirects to login page
@@ -225,10 +226,10 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
             <div class="row g-4">
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"></i>
+                        <i class="fa fa-user fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Today Sale</p>
-                            <h6 class="mb-0">$1234</h6>
+                            <p class="mb-2">Total Clients</p>
+                            <h6 class="mb-0"><?php viewClientNumber();  ?></h6>
                         </div>
                     </div>
                 </div>
@@ -236,26 +237,26 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-bar fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">Total Sale</p>
-                            <h6 class="mb-0">$1234</h6>
+                            <p class="mb-2">Total Sales</p>
+                            <h6 class="mb-0"><?php viewSalesNumber(); ?></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                        <i class="fa fa-dollar-sign fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
+                            <h6 class="mb-0">GH₵<?php viewSales(); ?></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-newspaper fa-3x text-primary"></i>
+                        <div class="ms-3">
+                            <p class="mb-2">Total Newsletter Subscribers</p>
+                            <h6 class="mb-0"><?php viewNewsletterNumber();  ?></h6>
                         </div>
                     </div>
                 </div>
@@ -335,7 +336,7 @@ if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['ema
                             <!-- <div id="brands"></div> -->
                            
                           <?php 
-                          include("../functions/viewbrands.php");
+                          
                           viewBrands();
                           ?>
                             

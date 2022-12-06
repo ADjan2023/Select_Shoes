@@ -30,7 +30,10 @@
 						<div class="login-wrap p-0">
 							<form action="../actions/registerprocess.php" class="signin-form" method="POST" >
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Full Name" name="fullname" required>
+									<input type="text" class="form-control" placeholder="First Name" name="fname" required>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Last Name" name="lname" required>
 								</div>
 								<div class="form-group">
 									<input type="email" class="form-control" placeholder="Email" name="email" required>

@@ -196,5 +196,27 @@ public function show_all_adverts()
 		return $this->db_fetch_all($sql);
 	}
 
+	public function sales_count()
+	{
+		$sql="SELECT SUM(`amt`) as `sales` FROM `payment`  ";
+		return $this->db_fetch_one($sql);
+	}
+	public function sales_number()
+	{
+		$sql="SELECT COUNT(`amt`) as `count` FROM `payment`  ";
+		return $this->db_fetch_one($sql);
+	}
+	public function client_number()
+	{
+		$sql="SELECT COUNT(*) as `count` FROM `customer`  ";
+		return $this->db_fetch_one($sql);
+	}
+
+		public function newsletter_number()
+	{
+		$sql="SELECT COUNT(*) as `count` FROM `customer` where `newsletter`='Yes' ";
+		return $this->db_fetch_one($sql);
+	}
+
 }
 ?>
