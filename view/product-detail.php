@@ -10,7 +10,7 @@ if(isset($_POST['view'])){
 <head>
 	<title>Sneaker Select</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="../images/custimages/bg.png">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
@@ -270,13 +270,24 @@ if(isset($_POST['view'])){
 							<div class="col-sm-12 text-center">
 								
 									<input type="hidden" name="pid" value="<?php echo $id; ?>">
-								<div class="addtocart"><button type="submit" name="add1" style="background-color: #840212;" class="btn btn-primary btn-addtocart"><i class="fas fa-shopping-cart"> Add to Cart</i> </button></div>
+									<?php
+						if (!empty($_SESSION['id']) and !empty($_SESSION['name']) and !empty($_SESSION['email']) and !empty($_SESSION['role']) and $_SESSION['role']!=1 ){
+
+	
+
+
+						?>
+								<div class="addtocart"><button type="submit" name="add1" style="background-color: #840212;" class="btn btn-primary btn-addtocart"><i class="fas fa-shopping-cart"> Add to Cart</i> </button>
+									<?php 
+								}
+									?>
+								</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-				</div>
+				
 				
 				
 
