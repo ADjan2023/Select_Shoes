@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
 		if(password_verify($unencryptpass, $encryptpass) and $result['user_role']==1){
 			session_start();
 			$_SESSION['id'] = $result['customer_id'];
-			$_SESSION['name'] = $result['customer_name'];
+			$_SESSION['name'] = $result['customer_name']." ".$result['customer_lname'];
 			$_SESSION['email'] = $result['customer_email'];
 			$_SESSION['role'] = $result['user_role'];
 			header('Location:../Admin/admin_dash.php');
@@ -24,7 +24,7 @@ if(isset($_POST['login'])){
 		else if(password_verify($unencryptpass, $encryptpass) and $result['user_role']==2){
 			session_start();
 			$_SESSION['id'] = $result['customer_id'];
-			$_SESSION['name'] = $result['customer_name'];
+			$_SESSION['name'] = $result['customer_name']." ".$result['customer_lname'];
 			$_SESSION['email'] = $result['customer_email'];
 			$_SESSION['role'] = $result['user_role'];
 			header('Location:../view/index.php');
