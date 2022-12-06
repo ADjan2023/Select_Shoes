@@ -22,7 +22,7 @@ class cart_class extends db_connection
 	}*/
 	public function add_to_cart($id,$ip,$cid,$quantity,$size)
 	{
-		$sql="INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`,`shoe_size`) select '$id','$ip','$cid','$quantity','$size' from dual WHERE NOT EXISTS(Select * from cart where `p_id`='$id' and `ip_add`='$ip' and `c_id`='$cid')";
+		$sql="INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`,`shoe_size`) select '$id','$ip','$cid','$quantity','$size' from dual WHERE NOT EXISTS(Select * from cart where `p_id`='$id' and `c_id`='$cid')";
 		$this->db_query($sql);
 		
 		if (mysqli_affected_rows($this->db)==0){
