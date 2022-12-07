@@ -341,7 +341,7 @@ function showAdverts(){
    
 				
 
-<li style="background-image: url(../images/adverts/<?php echo $result[$i]['company_image'];  ?>);">
+<li style="background-image: url(<?php echo "'../images/adverts/".$result[$i]['company_image']."'";  ?>);">
 					<div class="overlay"></div>
 					<div class="container-fluid">
 						<div class="row">
