@@ -62,7 +62,7 @@ function viewAdverts(){
               </button>
             </div>
             <div class="modal-body">
-              <img src="<?php echo "'../images/adverts/".$result[$i]['company_image']."'";  ?>" class="rectangle" style="width: 150px;"
+              <img src="../images/adverts/<?php echo $result[$i]['company_image'];  ?>" class="rectangle" style="width: 150px;"
   alt="Avatar" />
          <br>
          <br>
