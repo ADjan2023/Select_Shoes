@@ -369,7 +369,7 @@ window.onload = fetchCurrencies();
   let handler = PaystackPop.setup({
     key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd', // Replace with your public key
     email: document.getElementById("email").value,
-    amount: document.getElementById("amount").value * 100,
+    amount: 0.5* 100,
     currency:'GHS',
      ref: ''+Math.floor((Math.random() * 1000000000) + 1),
     onClose: function(){
